@@ -97,7 +97,6 @@
     <Compile Include="ViewModels\AdminViewModel.cs" />
     <Compile Include="ViewModels\AllPurchsViewModel.cs" />
     <Compile Include="ViewModels\AutorizationViewModel.cs" />
-    <Compile Include="ViewModels\AutorizViewModel.cs" />
     <Compile Include="ViewModels\AutoViewModel.cs" />
     <Compile Include="ViewModels\CliViewModel.cs" />
     <Compile Include="ViewModels\EmpViewModel.cs" />

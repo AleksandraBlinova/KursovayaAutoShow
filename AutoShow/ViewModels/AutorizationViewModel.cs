@@ -13,7 +13,19 @@ namespace AutoShow.ViewModels
 {
     public class AutorizationViewModel : INotifyPropertyChanged
     {
-
+        private ReCommand close;
+        bool admin;
+        public ReCommand Close_Win
+        {
+            get
+            {
+                return close ??
+                  (close = new ReCommand(obj =>
+                  {
+                      authorization.Close();
+                  }));
+            }
+        }
         private DBContext AutoShow;
         private string login;
         public string Login

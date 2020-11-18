@@ -73,7 +73,7 @@ WindowStyle="None"
     Orientation="Horizontal" Margin="0,0,147.4,0">
                 <ToolBar
     Style="{DynamicResource MaterialDesignToolBar}"
-    ClipToBounds="False" Height="56" Width="514">
+    ClipToBounds="False" Height="56" Width="621">
                     <ToolBar.Background>
                         <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                             <GradientStop Color="Black" Offset="0"/>
@@ -85,7 +85,7 @@ WindowStyle="None"
                         Content="Автомобили"
                         Command="{Binding Cars}"
       ToolTip="Перейти к автомобилям"
-     FontSize="22" FontWeight="Bold" Foreground="#FFEEFCFC" Margin="0,2,0,-1.6" Width="195" >
+     FontSize="22" FontWeight="Bold" Foreground="#FFEEFCFC" Margin="0,0,0,0.4" Width="206" >
 
                     </Button>
 
@@ -94,7 +94,7 @@ WindowStyle="None"
                         Content="Клиенты"
                         Command="{Binding Cli}"
       ToolTip="Перейти к клиентам"
-     FontSize="22" FontWeight="Bold" Foreground="#FFEEFCFC" Margin="0,2,0,-1.6" Width="142" >
+     FontSize="22" FontWeight="Bold" Foreground="#FFEEFCFC" Margin="0,0,0,0.4" Width="173" >
 
                     </Button>
                     <Button
@@ -102,7 +102,7 @@ WindowStyle="None"
                         Content="Продажи"
                         Command="{Binding Purchase}"
       ToolTip="Перейти к продажам"
-     FontSize="22" FontWeight="Bold" Foreground="#FFEEFCFC" Margin="0,2,0,-1.6" Width="142" >
+     FontSize="22" FontWeight="Bold" Foreground="#FFEEFCFC" Margin="0,0,0,-1.6" Width="171" Height="56" >
 
                     </Button>
 

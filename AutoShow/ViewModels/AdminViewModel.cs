@@ -51,7 +51,7 @@ namespace AutoShow.ViewModels
                   (staff = new ReCommand(obj =>
                   {
 
-                      Employees employees  = new Employees();
+                      Employees employees  = new Employees(admin);
                       employees.ShowDialog();
                       menuAdm.Close();
                   }));
@@ -68,7 +68,7 @@ namespace AutoShow.ViewModels
                   (statist = new ReCommand(obj =>
                   {
 
-                      Statistics statistics = new Statistics();
+                      Statistics statistics = new Statistics(admin);
                       statistics.ShowDialog();
                       statistics.ShowDialog();
                       menuAdm.Close();

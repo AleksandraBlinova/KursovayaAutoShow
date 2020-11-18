@@ -9,8 +9,9 @@ using System.Threading.Tasks;
 
 namespace AutoShow.ViewModels
 {
-    public class AutorizViewModel : INotifyPropertyChanged
+   public class LoginViewModel: INotifyPropertyChanged
     {
+
         private ReCommand close; //закрыть окно
         public ReCommand Close_Win
         {
@@ -19,16 +20,35 @@ namespace AutoShow.ViewModels
                 return close ??
                   (close = new ReCommand(obj =>
                   {
-                      authorization.Close(); //закрыли текущее окно Autorization
+                      login.Close(); //закрыли текущее окно Login
                   }));
             }
         }
 
 
-        private Authorization authorization;
-        public AutorizViewModel(Authorization authorization)
+        private ReCommand chooseuser; //выбрать пользователя
+        public ReCommand Choose_User
         {
-            this.authorization = authorization;
+            get
+            {
+                return chooseuser ??
+                  (chooseuser = new ReCommand(obj =>
+                  {
+                      
+                      Authorization authorization  = new Authorization();
+                      authorization.ShowDialog(); //будем открывать окно Авторизации
+                      login.Close();
+                  }));
+            }
+        }
+
+
+
+
+        private Login login; 
+        public LoginViewModel(Login login)
+        {
+            this.login = login;
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
@@ -37,7 +57,6 @@ namespace AutoShow.ViewModels
             if (PropertyChanged != null)
                 PropertyChanged(this, new PropertyChangedEventArgs(prop));
         }
-
 
     }
 }

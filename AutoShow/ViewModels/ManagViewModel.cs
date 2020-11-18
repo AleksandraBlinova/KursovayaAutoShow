@@ -51,7 +51,7 @@ namespace AutoShow.ViewModels
                   (cars = new ReCommand(obj =>
                   {
 
-                      Automobiles automobiles = new Automobiles();
+                      Automobiles automobiles = new Automobiles(manager);
                       automobiles.ShowDialog();
                       menuMan.Close();
                   }));
@@ -67,7 +67,7 @@ namespace AutoShow.ViewModels
                   (purchase = new ReCommand(obj =>
                   {
 
-                      Purchases purchases   = new Purchases();
+                      Purchases purchases   = new Purchases(manager);
                       purchases.ShowDialog();
                       menuMan.Close();
                   }));
@@ -83,7 +83,7 @@ namespace AutoShow.ViewModels
                   (clients = new ReCommand(obj =>
                   {
 
-                      Clients clients = new Clients();
+                      Clients clients = new Clients(manager);
                       clients.ShowDialog();
                       menuMan.Close();
                   }));

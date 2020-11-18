@@ -24,10 +24,10 @@ namespace AutoShow.View
     {
 
        
-            public Purchases()
+            public Purchases(bool manager)
             {
                 InitializeComponent();
-            DataContext = new AllPurchsViewModel(this);
+            DataContext = new AllPurchsViewModel(this, manager);
         }
 
 

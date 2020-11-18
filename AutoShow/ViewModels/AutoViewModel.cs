@@ -18,6 +18,7 @@ namespace AutoShow.ViewModels
         private DBOperations db;
         private ReCommand close; //закрыть окно
         private ReCommand back;
+        private bool manager;
         public ReCommand Close_Win
         {
             get
@@ -29,29 +30,30 @@ namespace AutoShow.ViewModels
                   }));
             }
         }
-        //public ReCommand Back
-        //{
-        //    get
-        //    {
-        //        return back ??
-        //          (back = new ReCommand(obj =>
-        //          {
-        //              MenuManager menuManager  = new MenuManager();
-        //              menuManager.ShowDialog();
-        //              automobiles.Close();
-        //          }));
-        //    }
-        //}
+        public ReCommand Back
+        {
+            get
+            {
+                return back ??
+                  (back = new ReCommand(obj =>
+                  {
+                      MenuManager menuManager = new MenuManager(manager);
+                      menuManager.ShowDialog();
+                      automobiles.Close();
+                  }));
+            }
+        }
 
         public ObservableCollection<AutoModel> Autos { get; set; }
 
         private Automobiles automobiles;
-        public AutoViewModel(Automobiles automobiles)
+        public AutoViewModel(Automobiles automobiles, bool manager)
         {
             db = new DBOperations();
 
             Autos = new ObservableCollection<AutoModel>(db.GetAllCars());
             this.automobiles = automobiles;
+            this.manager = manager;
         }
 
         public event PropertyChangedEventHandler PropertyChanged;

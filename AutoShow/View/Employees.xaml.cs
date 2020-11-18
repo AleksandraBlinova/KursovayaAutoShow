@@ -24,10 +24,10 @@ namespace AutoShow
     {
        
       
-        public Employees()
+        public Employees(bool admin)
         {
             InitializeComponent();
-            DataContext = new EmpViewModel(this);
+            DataContext = new EmpViewModel(this,admin);
 
         }
 

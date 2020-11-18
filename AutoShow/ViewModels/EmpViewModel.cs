@@ -16,6 +16,8 @@ namespace AutoShow.ViewModels
     {
         private DBOperations db;
         private ReCommand close; //закрыть окно
+        private ReCommand back; 
+        private bool admin;
         public ReCommand Close_Win
         {
             get
@@ -27,16 +29,30 @@ namespace AutoShow.ViewModels
                   }));
             }
         }
+        public ReCommand Back
+        {
+            get
+            {
+                return back ??
+                  (back = new ReCommand(obj =>
+                  {
+                      MenuAdministr menuAdministrn  = new MenuAdministr(admin);
+                      menuAdministrn.ShowDialog();
+                      employees.Close();
+                  }));
+            }
+        }
 
         public ObservableCollection<EmployeeModel> emps { get; set; }
 
         private Employees employees ;
-        public EmpViewModel(Employees employees )
+        public EmpViewModel(Employees employees, bool admin )
         {
             db = new DBOperations();
 
             emps = new ObservableCollection<EmployeeModel>(db.GetAllEmps());
             this.employees = employees;
+            this.admin = admin;
         }
 
         public event PropertyChangedEventHandler PropertyChanged;

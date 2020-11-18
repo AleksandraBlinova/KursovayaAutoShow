@@ -19,6 +19,7 @@ namespace AutoShow.ViewModels
         private DBOperations db;
         private ReCommand close; //закрыть окно
         private ReCommand back;
+        private bool manager;
         public ReCommand Close_Win
         {
             get
@@ -30,28 +31,29 @@ namespace AutoShow.ViewModels
                   }));
             }
         }
-        //public ReCommand Back
-        //{
-        //    get
-        //    {
-        //        return back ??
-        //          (back = new ReCommand(obj =>
-        //          {
-        //              MenuManager menuManager = new MenuManager();
-        //              menuManager.ShowDialog();
-        //              purchases.Close();
-        //          }));
-        //    }
-        //}
+        public ReCommand Back
+        {
+            get
+            {
+                return back ??
+                  (back = new ReCommand(obj =>
+                  {
+                      MenuManager menuManager = new MenuManager(manager);
+                      menuManager.ShowDialog();
+                      purchases.Close();
+                  }));
+            }
+        }
         public ObservableCollection<PurchModel> AllPurchs { get; set; }
 
         private Purchases purchases;
-        public AllPurchsViewModel(Purchases purchases )
+        public AllPurchsViewModel(Purchases purchases, bool manager )
         {
             db = new DBOperations();
 
             AllPurchs = new ObservableCollection<PurchModel>(db.GetAllPurchs());
             this.purchases = purchases;
+            this.manager = manager;
         }
 
         public event PropertyChangedEventHandler PropertyChanged;

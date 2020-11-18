@@ -16,15 +16,16 @@ using System.Windows.Shapes;
 namespace AutoShow
 {
     /// <summary>
-    /// Логика взаимодействия для Statistics.xaml
+    /// Логика взаимодействия для Login.xaml
     /// </summary>
-    public partial class Statistics : Window
+    public partial class Login : Window
     {
-        public Statistics(bool admin)
+        public Login()
         {
             InitializeComponent();
-            //DataContext = new StatisticViewModel(this, admin);
-
+            DataContext = new LoginViewModel(this);
         }
+
+       
     }
 }

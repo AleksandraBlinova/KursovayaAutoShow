@@ -58,14 +58,14 @@ WindowStyle="None"
         </Rectangle>
         <Label Content="СОТРУДНИКИ" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="417,32,414.4,0" Foreground="#FF1C1C1C" FontSize="32" FontWeight="Bold" FontFamily="Segoe UI Black" BorderBrush="White" Width="249"/>
         <materialDesign:PackIcon Kind="HumanGreeting" Foreground="#FF9063FF" Width="88" Height="54" HorizontalAlignment="Center" Margin="649,32,343.4,0" RenderTransformOrigin="0.741,0.546" />
-        <Button Width="60" Height="60" HorizontalAlignment="Right" VerticalAlignment="Top" Style="{StaticResource ButtonClose}" Background="{x:Null}" BorderBrush="{x:Null}" />
+        <Button Command="{Binding Close_Win}" Width="60" Height="60" HorizontalAlignment="Right" VerticalAlignment="Top" Style="{StaticResource ButtonClose}" Background="{x:Null}" BorderBrush="{x:Null}" />
         <DataGrid x:Name="EmpDatGrid" ItemsSource="{Binding emps}" AutoGenerateColumns="True" HorizontalAlignment="Left" Height="428" Margin="26,164,0,0" VerticalAlignment="Top" Width="692"      
         
         CanUserAddRows="False"
         SelectionUnit="Cell"
         SelectionMode="Extended" />
 
-        <Button Width="250" Height="35"
+        <Button Width="250" Height="35" Command="{Binding Back}"
     Style="{StaticResource MaterialDesignRaisedButton}"
     materialDesign:ButtonProgressAssist.Value="-1"
     materialDesign:ButtonProgressAssist.IsIndicatorVisible="True"
