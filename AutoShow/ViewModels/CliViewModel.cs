@@ -28,19 +28,19 @@ namespace AutoShow.ViewModels
                   }));
             }
         }
-        public ReCommand Back
-        {
-            get
-            {
-                return back ??
-                  (back = new ReCommand(obj =>
-                  {
-                      MenuManager menuManager = new MenuManager();
-                      menuManager.ShowDialog();
-                      clients.Close();
-                  }));
-            }
-        }
+        //public ReCommand Back
+        //{
+        //    get
+        //    {
+        //        return back ??
+        //          (back = new ReCommand(obj =>
+        //          {
+        //              MenuManager menuManager = new MenuManager();
+        //              menuManager.ShowDialog();
+        //              clients.Close();
+        //          }));
+        //    }
+        //}
         public ObservableCollection<ClientModel> clies { get; set; }
 
         private Clients clients;

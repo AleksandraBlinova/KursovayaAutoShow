@@ -23,7 +23,7 @@ namespace AutoShow
         public Authorization()
         {
             InitializeComponent();
-            DataContext = new AutorizViewModel(this);
+            DataContext = new AutorizationViewModel(this);
         }
     }
 }

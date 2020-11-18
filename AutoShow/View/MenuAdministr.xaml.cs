@@ -20,10 +20,10 @@ namespace AutoShow
     /// </summary>
     public partial class MenuAdministr : Window
     {
-        public MenuAdministr()
+        public MenuAdministr(bool admin)
         {
             InitializeComponent();
-            DataContext = new AdminViewModel(this);
+            DataContext = new AdminViewModel(this,admin);
         }
 
         private void TreeViewItem_Collapsed(object sender, RoutedEventArgs e)

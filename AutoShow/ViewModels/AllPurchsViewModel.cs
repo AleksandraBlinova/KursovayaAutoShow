@@ -30,19 +30,19 @@ namespace AutoShow.ViewModels
                   }));
             }
         }
-        public ReCommand Back
-        {
-            get
-            {
-                return back ??
-                  (back = new ReCommand(obj =>
-                  {
-                      MenuManager menuManager = new MenuManager();
-                      menuManager.ShowDialog();
-                      purchases.Close();
-                  }));
-            }
-        }
+        //public ReCommand Back
+        //{
+        //    get
+        //    {
+        //        return back ??
+        //          (back = new ReCommand(obj =>
+        //          {
+        //              MenuManager menuManager = new MenuManager();
+        //              menuManager.ShowDialog();
+        //              purchases.Close();
+        //          }));
+        //    }
+        //}
         public ObservableCollection<PurchModel> AllPurchs { get; set; }
 
         private Purchases purchases;

@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:AutoShow"
         mc:Ignorable="d"
-        Title="Contract" Height="550" Width="750"
+        Title="Contract" Height="700" Width="1080"
           xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
        
        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
@@ -57,26 +57,26 @@ WindowStyle="None"
             </Rectangle.Fill>
 
         </Rectangle>
-        <Label Content="ДОГОВОР КУПЛИ-ПРОДАЖИ" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="202,10,209.8,0" Foreground="#FF070910" FontSize="22" FontWeight="Bold" FontFamily="Segoe UI Black" BorderBrush="White" Width="339"/>
-        <materialDesign:PackIcon Kind="CurrencyUsd" Foreground="#FFFDFF03" Width="102" Height="39" HorizontalAlignment="Center" Margin="497,9,151.8,0" FontWeight="Bold" />
-        <materialDesign:PackIcon Kind="CurrencyUsd" Foreground="#FFFDFF03" Width="102" Height="39" HorizontalAlignment="Center" Margin="138,9,510.8,0" FontWeight="Bold" />
+        <Label Content="ДОГОВОР КУПЛИ-ПРОДАЖИ" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="327,9,265.4,0" Foreground="#FF070910" FontSize="32" FontWeight="Bold" FontFamily="Segoe UI Black" BorderBrush="White" Width="488"/>
+        <materialDesign:PackIcon Kind="CurrencyUsd" Foreground="#FFFDFF03" Width="127" Height="50" HorizontalAlignment="Center" Margin="773,10,180.4,0" FontWeight="Bold" RenderTransformOrigin="1.421,0.314" />
+        <materialDesign:PackIcon Kind="CurrencyUsd" Foreground="#FFFDFF03" Width="124" Height="51" HorizontalAlignment="Center" Margin="245,10,711.4,0" FontWeight="Bold" />
 
         <Button Width="60" Height="60" HorizontalAlignment="Right" VerticalAlignment="Top" Style="{StaticResource ButtonClose}" Background="{x:Null}" BorderBrush="{x:Null}" />
-        <Button
+        <Button Width="250" Height="35"
     Style="{StaticResource MaterialDesignRaisedButton}"
     materialDesign:ButtonProgressAssist.Value="-1"
     materialDesign:ButtonProgressAssist.IsIndicatorVisible="True"
     materialDesign:ButtonProgressAssist.IsIndeterminate="True"
     Content="НАЗАД"
-    Margin="30,486,510.8,9.8" Background="#FF030009" RenderTransformOrigin="0.518,-0.331" />
-        <Button
+    Margin="73,632,757.4,10.4" Background="#FF030009" RenderTransformOrigin="0.518,-0.331" FontSize="20" />
+        <Button Width="250" Height="35"
     Style="{StaticResource MaterialDesignRaisedButton}"
     materialDesign:ButtonProgressAssist.Value="-1"
     materialDesign:ButtonProgressAssist.IsIndicatorVisible="True"
     materialDesign:ButtonProgressAssist.IsIndeterminate="True"
     Content="ПЕЧАТЬ"
-    Margin="508,486,28.8,9.8" Background="#FF030009" RenderTransformOrigin="0.518,-0.331" />
-        <DataGrid HorizontalAlignment="Left" Height="382" Margin="73,70,0,0" VerticalAlignment="Top" Width="563"/>
+    Margin="757,632,73.4,10.4" Background="#FF030009" RenderTransformOrigin="0.518,-0.331" FontSize="20" />
+        <DataGrid HorizontalAlignment="Left" Height="382" Margin="73,150,0,0" VerticalAlignment="Top" Width="563"/>
 
 
 

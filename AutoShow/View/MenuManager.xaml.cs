@@ -20,10 +20,10 @@ namespace AutoShow
     /// </summary>
     public partial class MenuManager : Window
     {
-        public MenuManager()
+        public MenuManager(bool manager)
         {
             InitializeComponent();
-            DataContext = new ManagViewModel(this);
+            DataContext = new ManagViewModel(this,manager);
         }
     }
 }

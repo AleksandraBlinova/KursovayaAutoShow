@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:AutoShow"
         mc:Ignorable="d"
-        Title="Statistics" Height="550" Width="750"
+        Title="Statistics"  Height="700" Width="1080"
          xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
      TextElement.FontWeight="Regular"
@@ -49,36 +49,39 @@ WindowStyle="None"
             </LinearGradientBrush>
         </Grid.OpacityMask>
 
-        <Rectangle Margin="0,0,0,-22.6">
+        <Rectangle Margin="0,0,0.4,-22.6">
             <Rectangle.Fill>
                 <ImageBrush ImageSource="72190-1561539728-3642f43d6f14e94263e5ac4d8be7b7c2.jpg"/>
 
             </Rectangle.Fill>
 
         </Rectangle>
-        <Label Content="СТАТИСТИКА ПРОДАЖ" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="240,10,227.8,0" Foreground="#FF1C1C1C" FontSize="22" FontWeight="Bold" FontFamily="Segoe UI Black" BorderBrush="White" Width="283"/>
-        <materialDesign:PackIcon Kind="ArrowUpThick" Foreground="#FF00FF03" Width="80" Height="38" HorizontalAlignment="Center" Margin="494,10,176.8,0" />
+        <Label Content="СТАТИСТИКА ПРОДАЖ" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="354,10,311.4,0" Foreground="#FF1C1C1C" FontSize="32" FontWeight="Bold" FontFamily="Segoe UI Black" BorderBrush="White" Width="415"/>
+        <materialDesign:PackIcon Kind="ArrowUpThick" Foreground="#FF00FF03" Width="123" Height="70" HorizontalAlignment="Center" Margin="726,-10,231.4,0" FontSize="30" RenderTransformOrigin="0.899,0.297" />
+        
         <Button Width="60" Height="60" HorizontalAlignment="Right" VerticalAlignment="Top" Style="{StaticResource ButtonClose}" Background="{x:Null}" BorderBrush="{x:Null}" />
-        <DataGrid x:Name="NameTable" AutoGenerateColumns="True" HorizontalAlignment="Left" Height="386" Margin="26,65,0,0" VerticalAlignment="Top" Width="696"      
-        ItemsSource="{Binding Items2}"
-        CanUserAddRows="False"
-        SelectionUnit="Cell"
-        SelectionMode="Extended" />
-        <Button
+        <Button Width="250" Height="35"
     Style="{StaticResource MaterialDesignRaisedButton}"
     materialDesign:ButtonProgressAssist.Value="-1"
     materialDesign:ButtonProgressAssist.IsIndicatorVisible="True"
     materialDesign:ButtonProgressAssist.IsIndeterminate="True"
     Content="НАЗАД"
-    Margin="30,486,510.8,9.8" Background="#FF030009" RenderTransformOrigin="0.518,-0.331" />
-        <Button
+    Margin="10,642,820.4,0.4" Background="#FF030009" RenderTransformOrigin="0.518,-0.331" FontSize="20" />
+        <Button Width="250" Height="35"
     Style="{StaticResource MaterialDesignRaisedButton}"
     materialDesign:ButtonProgressAssist.Value="-1"
     materialDesign:ButtonProgressAssist.IsIndicatorVisible="True"
     materialDesign:ButtonProgressAssist.IsIndeterminate="True"
     Content="ПЕЧАТЬ"
-    Margin="508,486,28.8,9.8" Background="#FF030009" RenderTransformOrigin="0.518,-0.331" />
-
+    Margin="820,642,10.4,0.4" Background="#FF030009" RenderTransformOrigin="0.518,-0.331" FontSize="20" />
+        
+        <Calendar Language="ru-RU" HorizontalAlignment="Left" Margin="30,82,0,0" VerticalAlignment="Top" Width="373" Height="357" FontSize="18"/>
+        <Button Height="35"
+    Style="{StaticResource MaterialDesignRaisedAccentButton}"
+   
+    ToolTip="Resource name: MaterialDesignRaisedAccentButton" Margin="192,460,677.4,182.4" FontWeight="Bold" Foreground="#FF0D0D15" FontSize="20">
+            ПОЛУЧИТЬ
+        </Button>
     </Grid>
 
 </Window>

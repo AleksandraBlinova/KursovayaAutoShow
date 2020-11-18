@@ -12,6 +12,7 @@ namespace AutoShow.ViewModels
 {
     class ManagViewModel : INotifyPropertyChanged
     {
+        bool manager;
         private ReCommand close;
         public ReCommand Close_Win
         {
@@ -90,9 +91,10 @@ namespace AutoShow.ViewModels
         }
 
         private MenuManager menuMan;
-        public ManagViewModel(MenuManager menuMan)
+        public ManagViewModel(MenuManager menuMan, bool manager)
         {
             this.menuMan = menuMan;
+            this.manager = manager;
         }
         public event PropertyChangedEventHandler PropertyChanged;
         public void OnPropertyChanged([CallerMemberName] string prop = "")

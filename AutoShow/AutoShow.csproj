@@ -96,12 +96,14 @@
     <Compile Include="Models\PurchModel.cs" />
     <Compile Include="ViewModels\AdminViewModel.cs" />
     <Compile Include="ViewModels\AllPurchsViewModel.cs" />
+    <Compile Include="ViewModels\AutorizationViewModel.cs" />
     <Compile Include="ViewModels\AutorizViewModel.cs" />
     <Compile Include="ViewModels\AutoViewModel.cs" />
     <Compile Include="ViewModels\CliViewModel.cs" />
     <Compile Include="ViewModels\EmpViewModel.cs" />
     <Compile Include="ViewModels\ManagViewModel.cs" />
     <Compile Include="ViewModels\ReCommand.cs" />
+    <Compile Include="ViewModels\StatisticViewModel.cs" />
     <Compile Include="View\Authorization.xaml.cs">
       <DependentUpon>Authorization.xaml</DependentUpon>
     </Compile>

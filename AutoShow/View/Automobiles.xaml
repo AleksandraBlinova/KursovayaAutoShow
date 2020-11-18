@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:AutoShow"
         mc:Ignorable="d"
-        Title="Automobiles" Height="550" Width="750"
+        Title="Automobiles" Height="700" Width="1080"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
      TextElement.FontWeight="Regular"
@@ -66,35 +66,35 @@ WindowStyle="None"
             </Rectangle.Fill>
 
         </Rectangle>
-        <Label Content="АВТОМОБИЛИ" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="288,10,35.8,0" Foreground="#FF070910" FontSize="22" FontWeight="Bold" FontFamily="Segoe UI Black" BorderBrush="White"/>
-        <materialDesign:PackIcon Kind="Car" Foreground="#FF9276D4" Width="102" Height="39" HorizontalAlignment="Center" Margin="435,9,213.4,0" Grid.ColumnSpan="2" />
+        <Label Content="АВТОМОБИЛИ" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="288,10,35.8,0" Foreground="#FF070910" FontSize="32" FontWeight="Bold" FontFamily="Segoe UI Black" BorderBrush="White"/>
+        <materialDesign:PackIcon Kind="Car" Foreground="#FFAE93ED" Width="121" Height="51" HorizontalAlignment="Center" Margin="600,9,359,0" Grid.ColumnSpan="2" />
 
         <Button x:Name="Butclose" Command="{Binding Close_Win}" Width="60" Height="60" HorizontalAlignment="Right" VerticalAlignment="Top" Style="{StaticResource ButtonClose}" Background="{x:Null}" BorderBrush="{x:Null}" Margin="0,0,0.4,0" Grid.RowSpan="2" Grid.Column="1" />
-        <DataGrid x:Name="DataGCars"  ItemsSource="{Binding Autos}" AutoGenerateColumns="True" HorizontalAlignment="Left" Height="405" Margin="-2,9.6,0,0" VerticalAlignment="Top" Width="752"      
+        <DataGrid x:Name="DataGCars"  ItemsSource="{Binding Autos}" AutoGenerateColumns="True" HorizontalAlignment="Left" Height="405" Margin="10,27.6,0,0" VerticalAlignment="Top" Width="752"      
         CanUserAddRows="False"
-        SelectionUnit="Cell" Grid.RowSpan="2" Grid.ColumnSpan="2" Grid.Row="1"
+        SelectionUnit="Cell" Grid.ColumnSpan="2" Grid.Row="1"
      />
-        <Button
+        <Button Width="250" Height="35"
     Style="{StaticResource MaterialDesignRaisedButton}"
     materialDesign:ButtonProgressAssist.Value="-1"
     materialDesign:ButtonProgressAssist.IsIndicatorVisible="True"
     materialDesign:ButtonProgressAssist.IsIndeterminate="True"
     Content="КУПИТЬ"
-    Margin="138.2,22.048,9.4,10.2" Background="#FF030009" RenderTransformOrigin="0.518,-0.331" Grid.Row="2" Grid.Column="1" />
-        <Button Command="{Binding Back}"
+    Margin="99.2,42.4,10,5" Background="#FF030009" RenderTransformOrigin="0.518,-0.331" Grid.Row="2" Grid.Column="1" FontSize="20" />
+        <Button Command="{Binding Back}" Width="250" Height="35"
     Style="{StaticResource MaterialDesignRaisedButton}"
     materialDesign:ButtonProgressAssist.Value="-1"
     materialDesign:ButtonProgressAssist.IsIndicatorVisible="True"
     materialDesign:ButtonProgressAssist.IsIndeterminate="True"
     Content="НАЗАД"
-    Margin="30,22.048,346.8,10.2" Background="#FF030009" RenderTransformOrigin="0.518,-0.331" Grid.Row="2" />
-        <Button
+    Margin="10,42.6,460.8,4.8" Background="#FF030009" RenderTransformOrigin="0.518,-0.331" Grid.Row="2" FontSize="20" />
+        <Button Width="250" Height="35"
     Style="{StaticResource MaterialDesignRaisedButton}"
     materialDesign:ButtonProgressAssist.Value="-1"
     materialDesign:ButtonProgressAssist.IsIndicatorVisible="True"
     materialDesign:ButtonProgressAssist.IsIndeterminate="True"
     Content="ЗАКАЗАТЬ АВТО"
-    Margin="194,22.048,163.8,10.2" Background="#FF030009" RenderTransformOrigin="0.518,-0.331" Grid.Row="2" />
+    Margin="378,42.4,92.8,5" Background="#FF030009" RenderTransformOrigin="0.518,-0.331" Grid.Row="2" FontSize="20" />
 
 
 

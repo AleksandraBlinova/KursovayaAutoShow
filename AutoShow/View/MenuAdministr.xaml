@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:AutoShow"
         mc:Ignorable="d"
-        Title="MenuAdministr" Height="550" Width="750"
+        Title="MenuAdministr" Height="700" Width="1080"
           xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         
        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
@@ -57,7 +57,7 @@ WindowStyle="None"
 
         </Rectangle>
 
-        <Button Command="{Binding Close_Win}" Width="60" Height="60" HorizontalAlignment="Right" VerticalAlignment="Top" Style="{StaticResource ButtonClose}" Background="{x:Null}" BorderBrush="{x:Null}" Margin="0,46,0.8,0" />
+        <Button Command="{Binding Close_Win}" Width="60" Height="60" HorizontalAlignment="Right" VerticalAlignment="Top" Style="{StaticResource ButtonClose}" Background="{x:Null}" BorderBrush="{x:Null}" Margin="0,56,10.4,0" />
         <materialDesign:ColorZone
   Mode="Custom"
   Foreground="White"
@@ -86,7 +86,7 @@ WindowStyle="None"
                         Content="Сотрудники"
                         Command="{Binding Staff}"
       ToolTip="Перейти к сотрудникам"
-     FontSize="18" FontWeight="Bold" Foreground="#FFEEFCFC" Margin="0,2,0,-1.6" Width="142" >
+     FontSize="22" FontWeight="Bold" Foreground="#FFEEFCFC" Margin="0,2,0,-1.6" Width="163" >
 
                     </Button>
 
@@ -94,7 +94,7 @@ WindowStyle="None"
                         Content="Cтатистика"
                         Command="{Binding Statist}"
       ToolTip="Перейти к статистике салона"
-     FontSize="18" FontWeight="Bold" Foreground="#FFEEFCFC" Margin="0,2,0,-1.6" Width="148">
+     FontSize="22" FontWeight="Bold" Foreground="#FFEEFCFC" Margin="0,2,0,-1.6" Width="188">
 
                     </Button>
 
@@ -113,14 +113,14 @@ WindowStyle="None"
                 </StackPanel>
             </StackPanel>
         </materialDesign:ColorZone>
-        <Button Command="{Binding Back}"
+        <Button Command="{Binding Back}" Width="250" Height="35"
     Style="{StaticResource MaterialDesignRaisedButton}"
     materialDesign:ButtonProgressAssist.Value="-1"
     materialDesign:ButtonProgressAssist.IsIndicatorVisible="True"
     materialDesign:ButtonProgressAssist.IsIndeterminate="True"
     Content="НАЗАД"
-    Margin="10,460,544.8,35.8" Background="#FF030009" RenderTransformOrigin="0.518,-0.331" />
-        <Label Content="ADMINISTRATOR" HorizontalAlignment="Center" VerticalAlignment="Top" Foreground="#FFF1EEF8" FontSize="18"  FontWeight="Bold" Height="28" Width="155" RenderTransformOrigin="0,0" Margin="586,13,9.8,0"/>
+    Margin="35,642,795.4,0.4" Background="#FF030009" RenderTransformOrigin="0.518,-0.331" FontSize="20" />
+        <Label Content="ADMINISTRATOR" HorizontalAlignment="Center" VerticalAlignment="Top" Foreground="#FFF1EEF8" FontSize="22"  FontWeight="Bold" Height="28" Width="197" RenderTransformOrigin="0,0" Margin="853,15,30.4,0"/>
     </Grid>
 
 </Window>

@@ -29,19 +29,19 @@ namespace AutoShow.ViewModels
                   }));
             }
         }
-        public ReCommand Back
-        {
-            get
-            {
-                return back ??
-                  (back = new ReCommand(obj =>
-                  {
-                      MenuManager menuManager  = new MenuManager();
-                      menuManager.ShowDialog();
-                      automobiles.Close();
-                  }));
-            }
-        }
+        //public ReCommand Back
+        //{
+        //    get
+        //    {
+        //        return back ??
+        //          (back = new ReCommand(obj =>
+        //          {
+        //              MenuManager menuManager  = new MenuManager();
+        //              menuManager.ShowDialog();
+        //              automobiles.Close();
+        //          }));
+        //    }
+        //}
 
         public ObservableCollection<AutoModel> Autos { get; set; }
 

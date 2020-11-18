@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:AutoShow"
         mc:Ignorable="d"
-        Title="Order" Height="550" Width="750"
+        Title="Order"  Height="700" Width="1080"
           xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
        
        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
@@ -57,24 +57,24 @@ WindowStyle="None"
             </Rectangle.Fill>
 
         </Rectangle>
-        <Label Content="ЗАКАЗ АВТОМОБИЛЯ" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="261,22,150.8,0" Foreground="#FF070910" FontSize="22" FontWeight="Bold" FontFamily="Segoe UI Black" BorderBrush="White" Width="339"/>
+        <Label Content="ЗАКАЗ АВТОМОБИЛЯ" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="383,41,329.4,0" Foreground="#FF070910" FontSize="32" FontWeight="Bold" FontFamily="Segoe UI Black" BorderBrush="White" Width="368"/>
 
         <Button Width="60" Height="60" HorizontalAlignment="Right" VerticalAlignment="Top" Style="{StaticResource ButtonClose}" Background="{x:Null}" BorderBrush="{x:Null}" />
-        <Button
+        <Button Width="250" Height="35"
     Style="{StaticResource MaterialDesignRaisedButton}"
     materialDesign:ButtonProgressAssist.Value="-1"
     materialDesign:ButtonProgressAssist.IsIndicatorVisible="True"
     materialDesign:ButtonProgressAssist.IsIndeterminate="True"
     Content="НАЗАД"
-    Margin="30,486,510.8,9.8" Background="#FF030009" RenderTransformOrigin="0.518,-0.331" />
-        <Button
+    Margin="42,635,788.4,7.4" Background="#FF030009" RenderTransformOrigin="0.518,-0.331" FontSize="20" />
+        <Button Width="250" Height="35"
     Style="{StaticResource MaterialDesignRaisedButton}"
     materialDesign:ButtonProgressAssist.Value="-1"
     materialDesign:ButtonProgressAssist.IsIndicatorVisible="True"
     materialDesign:ButtonProgressAssist.IsIndeterminate="True"
     Content="ЗАКАЗАТЬ"
-    Margin="508,486,28.8,9.8" Background="#FF030009" RenderTransformOrigin="0.518,-0.331" />
-        <DataGrid HorizontalAlignment="Left" Height="382" Margin="77,75,77,0" VerticalAlignment="Top" Width="592"/>
+    Margin="787,635,42,7.4" Background="#FF030009" RenderTransformOrigin="0.518,-0.331" FontSize="20" />
+        <DataGrid HorizontalAlignment="Left" Height="382" Margin="42,176,0,0" VerticalAlignment="Top" Width="592"/>
 
 
 

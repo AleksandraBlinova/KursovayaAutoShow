@@ -12,6 +12,7 @@ namespace AutoShow.ViewModels
     public class AdminViewModel : INotifyPropertyChanged
     {
         private ReCommand close;
+        bool admin;
         public ReCommand Close_Win
         {
             get
@@ -76,9 +77,10 @@ namespace AutoShow.ViewModels
         }
 
         private MenuAdministr menuAdm;
-        public AdminViewModel(MenuAdministr menuAdm)
+        public AdminViewModel(MenuAdministr menuAdm, bool admin)
         {
             this.menuAdm = menuAdm;
+            this.admin = admin;
         }
         public event PropertyChangedEventHandler PropertyChanged;
         public void OnPropertyChanged([CallerMemberName] string prop = "")
