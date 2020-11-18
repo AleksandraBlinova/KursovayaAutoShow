@@ -1,4 +1,4 @@
-namespace DAL.Entity
+namespace DAL.Models
 {
     using System;
     using System.Collections.Generic;
@@ -6,24 +6,27 @@ namespace DAL.Entity
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
-    [Table("ExtraServ")]
-    public partial class ExtraServ
+    [Table("Brand")]
+    public partial class Brand
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public ExtraServ()
+        public Brand()
         {
-            Purchase = new HashSet<Purchase>();
+            Model = new HashSet<Model>();
         }
 
         public int Id { get; set; }
 
+        [Column("Brand")]
+        [Required]
         [StringLength(20)]
-        
-        public string ServName { get; set; }
+        public string Brand1 { get; set; }
 
-        public int? ServCost { get; set; }
+        public int CountryFK { get; set; }
+
+        public virtual Country Country { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Purchase> Purchase { get; set; }
+        public virtual ICollection<Model> Model { get; set; }
     }
 }

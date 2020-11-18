@@ -57,7 +57,7 @@ WindowStyle="None"
 
         </Rectangle>
 
-        <Button Width="60" Height="60" HorizontalAlignment="Right" VerticalAlignment="Top" Style="{StaticResource ButtonClose}" Background="{x:Null}" BorderBrush="{x:Null}" Margin="0,37,-0.2,0" />
+        <Button Command="{Binding Close_Win}" Width="60" Height="60" HorizontalAlignment="Right" VerticalAlignment="Top" Style="{StaticResource ButtonClose}" Background="{x:Null}" BorderBrush="{x:Null}" Margin="0,46,0.8,0" />
         <materialDesign:ColorZone
   Mode="Custom"
   Foreground="White"
@@ -83,18 +83,18 @@ WindowStyle="None"
                     </ToolBar.Background>
                     <Button
                         
-                        Content="Автомобили"
-                        Command="{Binding Cars}"
-      ToolTip="Перейти к автомобилям"
-     FontSize="18" FontWeight="Bold" Foreground="#FFEEFCFC" Margin="0,0,0,0.4" Width="142">
+                        Content="Сотрудники"
+                        Command="{Binding Staff}"
+      ToolTip="Перейти к сотрудникам"
+     FontSize="18" FontWeight="Bold" Foreground="#FFEEFCFC" Margin="0,2,0,-1.6" Width="142" >
 
                     </Button>
 
                     <Button
-                        Content="Клиенты"
-                        Command="{Binding Cli}"
-      ToolTip="Перейти к клиентам"
-     FontSize="18" FontWeight="Bold" Foreground="#FFEEFCFC" Margin="0,0,0,0.4" Width="142">
+                        Content="Cтатистика"
+                        Command="{Binding Statist}"
+      ToolTip="Перейти к статистике салона"
+     FontSize="18" FontWeight="Bold" Foreground="#FFEEFCFC" Margin="0,2,0,-1.6" Width="148">
 
                     </Button>
 
@@ -113,7 +113,7 @@ WindowStyle="None"
                 </StackPanel>
             </StackPanel>
         </materialDesign:ColorZone>
-        <Button
+        <Button Command="{Binding Back}"
     Style="{StaticResource MaterialDesignRaisedButton}"
     materialDesign:ButtonProgressAssist.Value="-1"
     materialDesign:ButtonProgressAssist.IsIndicatorVisible="True"

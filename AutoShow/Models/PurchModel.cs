@@ -16,7 +16,7 @@ namespace DAL.ViewModels
         public string EmpFCS { get; set; }
         public string CliFCS { get; set; }
 
-        public DateTime PurchDate { get; set; }
+        public string PurchDate { get; set; }
         public string Brand { get; set; }
         public string Model { get; set; }
         public string Plant { get; set; }
@@ -35,7 +35,7 @@ namespace DAL.ViewModels
         public PurchModel(Purchase purhcase)
         {
             Id = purhcase.Id;
-            PurchDate = purhcase.PurchDate;
+            PurchDate = purhcase.PurchDate.ToShortDateString();
             TotalCost = purhcase.TotalCost;
             EmpFCS = purhcase.Employee.FCS;
             CliFCS = purhcase.Client.FCS;
@@ -46,7 +46,8 @@ namespace DAL.ViewModels
             PayType = purhcase.PayType.PayType1;
             EquipType = purhcase.Automobile.VehicleEquip.EquipType;
             Transm = purhcase.Automobile.VehicleEquip.Transmission.Transmission1;
-
+            Color = purhcase.Automobile.Color.Color1;
+            Plant = purhcase.Automobile.Plant.PlantName;
 
 
 

@@ -1,5 +1,4 @@
-﻿using DAL.Entity;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -11,7 +10,7 @@ namespace DAL.ViewModels
     {
         public int Id { get; set; }
         public string FCS { get; set; }
-        public string Birthday { get; set; }
+        public DateTime Birthday { get; set; }
         public long Number { get; set; }
         public string Address { get; set; }
 
@@ -25,13 +24,13 @@ namespace DAL.ViewModels
         public ClientModel(Client c)
         {
             Id = c.Id;
-            FCS = c.FCS;
-            Birthday = c.Birthday.ToShortDateString();
-            Number = c.Number;
-            Address = c.Address;
-            SerPassport = c.SerPassport;
-            NumbPassport = c.NumbPassport;
-            Gend = c.Gender.Gender1;
+            FCS = c.Human.FCS;
+            Birthday = c.Human.Birthday;
+            Number = c.Human.Number;
+            Address = c.Human.Address;
+            SerPassport = c.Human.SerPassport;
+            NumbPassport = c.Human.NumbPassport;
+            Gend = c.Human.Gender.Gender1;
 
         }
 

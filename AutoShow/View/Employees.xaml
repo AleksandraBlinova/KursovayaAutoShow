@@ -59,8 +59,8 @@ WindowStyle="None"
         <Label Content="СОТРУДНИКИ" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="267,32,272.8,0" Foreground="#FF1C1C1C" FontSize="22" FontWeight="Bold" FontFamily="Segoe UI Black" BorderBrush="White" Width="211"/>
         <materialDesign:PackIcon Kind="HumanGreeting" Foreground="#FF9063FF" Width="80" Height="38" HorizontalAlignment="Center" Margin="465,32,205.8,0" />
         <Button Width="60" Height="60" HorizontalAlignment="Right" VerticalAlignment="Top" Style="{StaticResource ButtonClose}" Background="{x:Null}" BorderBrush="{x:Null}" />
-        <DataGrid x:Name="EmpDatGrid" AutoGenerateColumns="True" HorizontalAlignment="Left" Height="346" Margin="26,107,0,0" VerticalAlignment="Top" Width="555"      
-        ItemsSource="{Binding Items2}"
+        <DataGrid x:Name="EmpDatGrid" ItemsSource="{Binding emps}" AutoGenerateColumns="True" HorizontalAlignment="Left" Height="346" Margin="26,107,0,0" VerticalAlignment="Top" Width="692"      
+        
         CanUserAddRows="False"
         SelectionUnit="Cell"
         SelectionMode="Extended" />

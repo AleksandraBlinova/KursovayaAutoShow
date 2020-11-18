@@ -64,7 +64,7 @@ WindowStyle="None"
         CanUserAddRows="False"
         SelectionUnit="Cell"
         SelectionMode="Extended" />
-        <Button
+        <Button Command="{Binding Back}"
     Style="{StaticResource MaterialDesignRaisedButton}"
     materialDesign:ButtonProgressAssist.Value="-1"
     materialDesign:ButtonProgressAssist.IsIndicatorVisible="True"

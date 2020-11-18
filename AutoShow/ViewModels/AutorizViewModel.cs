@@ -25,21 +25,7 @@ namespace AutoShow.ViewModels
         }
 
 
-        private ReCommand back; //назад в Логин
-        public ReCommand Back_Login
-        {
-            get
-            {
-                return back ??
-                  (back = new ReCommand(obj =>
-                  {
-                     
-                      Login login  = new Login();
-                      login.ShowDialog(); //будем открывать окно Login
-                      authorization.Close();
-                  }));
-            }
-        }
+       
 
 
 

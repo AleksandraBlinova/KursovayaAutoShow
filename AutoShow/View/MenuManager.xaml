@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:AutoShow"
         mc:Ignorable="d"
-        Title="MenuManager" Height="500" Width="550"
+        Title="MenuManager" Height="550" Width="750"
           xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         
        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
@@ -42,7 +42,7 @@ WindowStyle="None"
     </Window.Resources>
 
 
-    <Grid Margin="0,0,-0.4,22.6">
+    <Grid Margin="0,0,-0.6,23">
         <Grid.OpacityMask>
             <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                 <GradientStop Color="Black" Offset="0"/>
@@ -50,59 +50,85 @@ WindowStyle="None"
             </LinearGradientBrush>
         </Grid.OpacityMask>
 
-        <Rectangle Margin="0,0,1.8,-22.6">
+        <Rectangle Margin="0,56,0,-23.6" HorizontalAlignment="Right" Width="751">
             <Rectangle.Fill>
                 <ImageBrush ImageSource="72190-1561539728-3642f43d6f14e94263e5ac4d8be7b7c2.jpg"/>
             </Rectangle.Fill>
 
         </Rectangle>
 
-        <Button Width="60" Height="60" HorizontalAlignment="Right" VerticalAlignment="Top" Style="{StaticResource ButtonClose}" Background="{x:Null}" BorderBrush="{x:Null}" Margin="0,37,-0.2,0" />
+        <Button Command="{Binding Close_Win}" Width="60" Height="60" HorizontalAlignment="Right" VerticalAlignment="Top" Style="{StaticResource ButtonClose}" Background="{x:Null}" BorderBrush="{x:Null}" Margin="0,56,10.2,0" />
         <materialDesign:ColorZone
   Mode="Custom"
   Foreground="White"
   Padding="16 0"
-  ClipToBounds="False" Margin="0,0,-0.2,0">
+  ClipToBounds="False">
             <materialDesign:ColorZone.Background>
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                     <GradientStop Color="Black" Offset="0"/>
-                    <GradientStop Color="#FF330266" Offset="1"/>
+                    <GradientStop Color="#FF460F7F" Offset="1"/>
                 </LinearGradientBrush>
             </materialDesign:ColorZone.Background>
             <StackPanel
-    Orientation="Horizontal">
-                <ToggleButton
-      Style="{DynamicResource MaterialDesignHamburgerToggleButton}" />
-                <ComboBox
-        SelectedIndex="0"
-        Margin="8 0 0 0"
-        BorderThickness="0"
-        materialDesign:ColorZoneAssist.Mode="Standard"
-        materialDesign:TextFieldAssist.UnderlineBrush="{DynamicResource MaterialDesignPaper}"
-        BorderBrush="{DynamicResource MaterialDesignPaper}" Height="25">
-                    <ComboBoxItem>
-                        Автомобили
-                    </ComboBoxItem>
-                    <ComboBoxItem>
-                        Клиенты
-                    </ComboBoxItem>
-                    <ComboBoxItem>
-                        Отчеты
-                    </ComboBoxItem>
+    Orientation="Horizontal" Margin="0,0,147.4,0">
+                <ToolBar
+    Style="{DynamicResource MaterialDesignToolBar}"
+    ClipToBounds="False" Height="56" Width="514">
+                    <ToolBar.Background>
+                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                            <GradientStop Color="Black" Offset="0"/>
+                            <GradientStop Color="#FF440E7A" Offset="1"/>
+                        </LinearGradientBrush>
+                    </ToolBar.Background>
+                    <Button
+                        
+                        Content="Автомобили"
+                        Command="{Binding Cars}"
+      ToolTip="Перейти к автомобилям"
+     FontSize="18" FontWeight="Bold" Foreground="#FFEEFCFC" Margin="0,2,0,-1.6" Width="142" >
 
-                </ComboBox>
+                    </Button>
+
+                    <Button
+                        
+                        Content="Клиенты"
+                        Command="{Binding Cli}"
+      ToolTip="Перейти к клиентам"
+     FontSize="18" FontWeight="Bold" Foreground="#FFEEFCFC" Margin="0,2,0,-1.6" Width="142" >
+
+                    </Button>
+                    <Button
+                        
+                        Content="Продажи"
+                        Command="{Binding Purchase}"
+      ToolTip="Перейти к продажам"
+     FontSize="18" FontWeight="Bold" Foreground="#FFEEFCFC" Margin="0,2,0,-1.6" Width="142" >
+
+                    </Button>
+
+                </ToolBar>
+                <StackPanel>
+
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition />
+                            <ColumnDefinition />
+                        </Grid.ColumnDefinitions>
+                        <ToolBarTray/>
+
+                    </Grid>
+
+                </StackPanel>
             </StackPanel>
         </materialDesign:ColorZone>
-        <Label Content="MANAGER" HorizontalAlignment="Center" VerticalAlignment="Top" Foreground="#FFF1EEF8" FontSize="18"  FontWeight="Bold" Height="30" Width="110" RenderTransformOrigin="1.092,-5.657" Margin="419,5,21.8,0"/>
-       
-        <Button
+        <Button Command="{Binding Back}"
     Style="{StaticResource MaterialDesignRaisedButton}"
     materialDesign:ButtonProgressAssist.Value="-1"
     materialDesign:ButtonProgressAssist.IsIndicatorVisible="True"
     materialDesign:ButtonProgressAssist.IsIndeterminate="True"
     Content="НАЗАД"
-    Margin="10,435,406.8,10.4" Background="#FF030009" RenderTransformOrigin="0.518,-0.331" />
-       
+    Margin="10,450,545.2,10.2" Background="#FF030009" RenderTransformOrigin="0.518,-0.331" />
+        <Label Content="MANAGER" HorizontalAlignment="Center" VerticalAlignment="Top" Foreground="#FFF1EEF8" FontSize="18"  FontWeight="Bold" Height="28" Width="107" RenderTransformOrigin="0,0" Margin="588,13,35.2,0"/>
     </Grid>
 
 </Window>

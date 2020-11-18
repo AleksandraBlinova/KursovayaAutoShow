@@ -59,7 +59,7 @@ WindowStyle="None"
         <Label Content="ПОКУПКИ АВТО" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="259,22,274.8,0" Foreground="#FF070910" FontSize="22" FontWeight="Bold" FontFamily="Segoe UI Black" BorderBrush="White" Width="217"/>
 
         <Button Command="{Binding Close_Win}" Width="60" Height="60" HorizontalAlignment="Right" VerticalAlignment="Top" Style="{StaticResource ButtonClose}" Background="{x:Null}" BorderBrush="{x:Null}" />
-        <Button
+        <Button Command="{Binding Back}"
     Style="{StaticResource MaterialDesignRaisedButton}"
     materialDesign:ButtonProgressAssist.Value="-1"
     materialDesign:ButtonProgressAssist.IsIndicatorVisible="True"

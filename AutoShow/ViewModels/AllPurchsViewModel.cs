@@ -18,6 +18,7 @@ namespace AutoShow.ViewModels
     {
         private DBOperations db;
         private ReCommand close; //закрыть окно
+        private ReCommand back;
         public ReCommand Close_Win
         {
             get
@@ -29,7 +30,19 @@ namespace AutoShow.ViewModels
                   }));
             }
         }
-
+        public ReCommand Back
+        {
+            get
+            {
+                return back ??
+                  (back = new ReCommand(obj =>
+                  {
+                      MenuManager menuManager = new MenuManager();
+                      menuManager.ShowDialog();
+                      purchases.Close();
+                  }));
+            }
+        }
         public ObservableCollection<PurchModel> AllPurchs { get; set; }
 
         private Purchases purchases;

@@ -81,7 +81,7 @@ WindowStyle="None"
     materialDesign:ButtonProgressAssist.IsIndeterminate="True"
     Content="КУПИТЬ"
     Margin="138.2,22.048,9.4,10.2" Background="#FF030009" RenderTransformOrigin="0.518,-0.331" Grid.Row="2" Grid.Column="1" />
-        <Button
+        <Button Command="{Binding Back}"
     Style="{StaticResource MaterialDesignRaisedButton}"
     materialDesign:ButtonProgressAssist.Value="-1"
     materialDesign:ButtonProgressAssist.IsIndicatorVisible="True"

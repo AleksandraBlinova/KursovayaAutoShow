@@ -11,7 +11,7 @@ namespace AutoShow.ViewModels
 {
     public class AdminViewModel : INotifyPropertyChanged
     {
-        private ReCommand close; 
+        private ReCommand close;
         public ReCommand Close_Win
         {
             get
@@ -19,40 +19,57 @@ namespace AutoShow.ViewModels
                 return close ??
                   (close = new ReCommand(obj =>
                   {
-                      menuAdm.Close(); 
+                      menuAdm.Close();
                   }));
             }
         }
-
-
-        private ReCommand cars; 
-        public ReCommand Cars
+        private ReCommand back;
+        public ReCommand Back
         {
             get
             {
-                return cars ??
-                  (cars = new ReCommand(obj =>
+                return back ??
+                  (back = new ReCommand(obj =>
                   {
 
-                      Automobiles automobiles = new Automobiles();
-                      automobiles.ShowDialog(); 
+                      Authorization authorization = new Authorization();
+                      authorization.ShowDialog();
                       menuAdm.Close();
                   }));
             }
         }
 
 
-        private ReCommand clients;
-        public ReCommand Cli
+
+        private ReCommand staff;
+        public ReCommand Staff
         {
             get
             {
-                return clients ??
-                  (clients = new ReCommand(obj =>
+                return staff ??
+                  (staff = new ReCommand(obj =>
                   {
 
-                       Clients clients= new Clients();
-                      clients.ShowDialog();
+                      Employees employees  = new Employees();
+                      employees.ShowDialog();
+                      menuAdm.Close();
+                  }));
+            }
+        }
+
+
+        private ReCommand statist;
+        public ReCommand Statist
+        {
+            get
+            {
+                return statist ??
+                  (statist = new ReCommand(obj =>
+                  {
+
+                      Statistics statistics = new Statistics();
+                      statistics.ShowDialog();
+                      statistics.ShowDialog();
                       menuAdm.Close();
                   }));
             }

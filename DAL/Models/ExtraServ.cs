@@ -1,4 +1,4 @@
-namespace DAL.Entity
+namespace DAL.Models
 {
     using System;
     using System.Collections.Generic;
@@ -18,7 +18,6 @@ namespace DAL.Entity
         public int Id { get; set; }
 
         [StringLength(20)]
-        
         public string ServName { get; set; }
 
         public int? ServCost { get; set; }

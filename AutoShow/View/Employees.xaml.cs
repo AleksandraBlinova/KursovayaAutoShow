@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using AutoShow.ViewModels;
 using DAL.Services;
 using DAL.ViewModels;
 
@@ -26,7 +27,8 @@ namespace AutoShow
         public Employees()
         {
             InitializeComponent();
-           
+            DataContext = new EmpViewModel(this);
+
         }
 
 

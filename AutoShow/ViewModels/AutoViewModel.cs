@@ -17,6 +17,7 @@ namespace AutoShow.ViewModels
     {
         private DBOperations db;
         private ReCommand close; //закрыть окно
+        private ReCommand back;
         public ReCommand Close_Win
         {
             get
@@ -25,6 +26,19 @@ namespace AutoShow.ViewModels
                   (close = new ReCommand(obj =>
                   {
                       automobiles.Close(); 
+                  }));
+            }
+        }
+        public ReCommand Back
+        {
+            get
+            {
+                return back ??
+                  (back = new ReCommand(obj =>
+                  {
+                      MenuManager menuManager  = new MenuManager();
+                      menuManager.ShowDialog();
+                      automobiles.Close();
                   }));
             }
         }

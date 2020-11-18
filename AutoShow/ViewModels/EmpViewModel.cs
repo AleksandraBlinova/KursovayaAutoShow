@@ -12,11 +12,10 @@ using System.Threading.Tasks;
 
 namespace AutoShow.ViewModels
 {
-    public class CliViewModel : INotifyPropertyChanged
+    public class EmpViewModel : INotifyPropertyChanged
     {
         private DBOperations db;
         private ReCommand close; //закрыть окно
-        private ReCommand back;
         public ReCommand Close_Win
         {
             get
@@ -24,32 +23,20 @@ namespace AutoShow.ViewModels
                 return close ??
                   (close = new ReCommand(obj =>
                   {
-                      clients.Close();
+                      employees.Close();
                   }));
             }
         }
-        public ReCommand Back
-        {
-            get
-            {
-                return back ??
-                  (back = new ReCommand(obj =>
-                  {
-                      MenuManager menuManager = new MenuManager();
-                      menuManager.ShowDialog();
-                      clients.Close();
-                  }));
-            }
-        }
-        public ObservableCollection<ClientModel> clies { get; set; }
 
-        private Clients clients;
-        public CliViewModel(Clients clients)
+        public ObservableCollection<EmployeeModel> emps { get; set; }
+
+        private Employees employees ;
+        public EmpViewModel(Employees employees )
         {
             db = new DBOperations();
 
-            clies = new ObservableCollection<ClientModel>(db.GetAllClients());
-            this.clients = clients;
+            emps = new ObservableCollection<EmployeeModel>(db.GetAllEmps());
+            this.employees = employees;
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
@@ -59,5 +46,6 @@ namespace AutoShow.ViewModels
                 PropertyChanged(this, new PropertyChangedEventArgs(prop));
         }
     
+
     }
 }
