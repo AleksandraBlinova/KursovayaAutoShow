@@ -7,16 +7,17 @@ using DAL.Entity;
 
 namespace AutoShow.Models
 {
-    public class ColorModel
+    public class BrandModel
     {
         public int Id { get; set; }
 
-        public string Color1 { get; set; }
-        public ColorModel() { }
-        public ColorModel(Color c)
+        public string Brand1 { get; set; }
+
+        public BrandModel() { }
+        public BrandModel(Brand brand)
         {
-            Id = c.Id;
-            Color1 = c.Color1;
+            Id = brand.Id;
+            Brand1 = brand.Brand1;
         }
     }
 }

@@ -1,4 +1,5 @@
 ﻿using AutoShow.Models;
+using AutoShow.View;
 using DAL.Entity;
 using DAL.Services;
 using DAL.ViewModels;
@@ -18,6 +19,7 @@ namespace AutoShow.ViewModels
         private DBOperations db;
         private ReCommand close; //закрыть окно
         private ReCommand back;
+        private ReCommand buy;
         private bool manager;
         public ReCommand Close_Win
         {
@@ -39,6 +41,19 @@ namespace AutoShow.ViewModels
                   {
                       MenuManager menuManager = new MenuManager(manager);
                       menuManager.ShowDialog();
+                      automobiles.Close();
+                  }));
+            }
+        }
+        public ReCommand Buy
+        {
+            get
+            {
+                return buy ??
+                  (buy = new ReCommand(obj =>
+                  {
+                      BuyAuto buyAuto  = new BuyAuto();
+                      buyAuto.ShowDialog();
                       automobiles.Close();
                   }));
             }

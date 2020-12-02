@@ -15,7 +15,7 @@ namespace DAL.ViewModels
         public long Id { get; set; }
         public string EmpFCS { get; set; }
         public string CliFCS { get; set; }
-
+        public string EquipType { get; set; }
         public string PurchDate { get; set; }
         public string Brand { get; set; }
         public string Model { get; set; }
@@ -23,9 +23,9 @@ namespace DAL.ViewModels
         public string Color { get; set; }
         public int ReleaseYear { get; set; }
         public long TotalCost { get; set; }
-        public string ExtraServ { get; set; }
+        //public string ExtraServ { get; set; }
         public string PayType { get; set; }
-        public string EquipType { get; set; }
+     
         public string Transm { get; set; }
 
 
@@ -39,16 +39,15 @@ namespace DAL.ViewModels
             TotalCost = purhcase.TotalCost;
             EmpFCS = purhcase.Employee.FCS;
             CliFCS = purhcase.Client.FCS;
-            Brand = purhcase.Automobile.VehicleEquip.Model.Brand.Brand1;
-            Model = purhcase.Automobile.VehicleEquip.Model.Model1;
+            Brand = purhcase.Automobile.Model.Brand.Brand1;
+            Model = purhcase.Automobile.Model.Model1;
             ReleaseYear = purhcase.Automobile.ReleaseYear;
             //ExtraServ = purhcase.ExtraServ.ServName;
             PayType = purhcase.PayType.PayType1;
-            EquipType = purhcase.Automobile.VehicleEquip.EquipType;
-            Transm = purhcase.Automobile.VehicleEquip.Transmission.Transmission1;
+            Transm = purhcase.VehicleEquip.Transmission.Transmission1;
             Color = purhcase.Automobile.Color.Color1;
             Plant = purhcase.Automobile.Plant.PlantName;
-
+            EquipType = purhcase.VehicleEquip.EquipType;
 
 
         }

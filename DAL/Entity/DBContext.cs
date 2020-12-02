@@ -97,6 +97,12 @@ namespace DAL.Entity
                 .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<Model>()
+                .HasMany(e => e.Automobile)
+                .WithRequired(e => e.Model)
+                .HasForeignKey(e => e.ModelFK)
+                .WillCascadeOnDelete(false);
+
+            modelBuilder.Entity<Model>()
                 .HasMany(e => e.VehicleEquip)
                 .WithRequired(e => e.Model)
                 .HasForeignKey(e => e.ModelFK)
@@ -121,9 +127,9 @@ namespace DAL.Entity
                 .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<VehicleEquip>()
-                .HasMany(e => e.Automobile)
+                .HasMany(e => e.Purchase)
                 .WithRequired(e => e.VehicleEquip)
-                .HasForeignKey(e => e.VechFK)
+                .HasForeignKey(e => e.VechTypeFK)
                 .WillCascadeOnDelete(false);
         }
     }

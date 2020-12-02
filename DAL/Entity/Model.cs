@@ -12,6 +12,7 @@ namespace DAL.Entity
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Model()
         {
+            Automobile = new HashSet<Automobile>();
             VehicleEquip = new HashSet<VehicleEquip>();
         }
 
@@ -23,6 +24,9 @@ namespace DAL.Entity
         public string Model1 { get; set; }
 
         public int BrandFK { get; set; }
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Automobile> Automobile { get; set; }
 
         public virtual Brand Brand { get; set; }
 

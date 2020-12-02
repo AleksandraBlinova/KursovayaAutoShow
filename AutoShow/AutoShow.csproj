@@ -90,24 +90,39 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Models\AutoModel.cs" />
+    <Compile Include="Models\BrandModel.cs" />
+    <Compile Include="Models\CarModel.cs" />
     <Compile Include="Models\ClientModel.cs" />
+    <Compile Include="Models\ColorModel.cs" />
     <Compile Include="Models\DBOperations.cs" />
     <Compile Include="Models\EmployeeModel.cs" />
+    <Compile Include="Models\PayTypeModel.cs" />
+    <Compile Include="Models\PlantModel.cs" />
     <Compile Include="Models\PurchModel.cs" />
+    <Compile Include="Models\VechTypeModel.cs" />
     <Compile Include="ViewModels\AdminViewModel.cs" />
     <Compile Include="ViewModels\AllPurchsViewModel.cs" />
     <Compile Include="ViewModels\AutorizationViewModel.cs" />
     <Compile Include="ViewModels\AutoViewModel.cs" />
+    <Compile Include="ViewModels\BuyViewModel.cs" />
+    <Compile Include="ViewModels\ChooseViewModel.cs" />
     <Compile Include="ViewModels\CliViewModel.cs" />
     <Compile Include="ViewModels\EmpViewModel.cs" />
     <Compile Include="ViewModels\ManagViewModel.cs" />
     <Compile Include="ViewModels\ReCommand.cs" />
     <Compile Include="ViewModels\StatisticViewModel.cs" />
+    <Compile Include="ViewModels\TypePayViewModel.cs" />
     <Compile Include="View\Authorization.xaml.cs">
       <DependentUpon>Authorization.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\Automobiles.xaml.cs">
       <DependentUpon>Automobiles.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\BuyAuto.xaml.cs">
+      <DependentUpon>BuyAuto.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\ChooseCustEmp.xaml.cs">
+      <DependentUpon>ChooseCustEmp.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\Clients.xaml.cs">
       <DependentUpon>Clients.xaml</DependentUpon>
@@ -133,11 +148,22 @@
     <Compile Include="View\Statistics.xaml.cs">
       <DependentUpon>Statistics.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\TypePay.xaml.cs">
+      <DependentUpon>TypePay.xaml</DependentUpon>
+    </Compile>
     <Page Include="View\Authorization.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\Automobiles.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\BuyAuto.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\ChooseCustEmp.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -174,6 +200,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\Statistics.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\TypePay.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

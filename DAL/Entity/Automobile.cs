@@ -27,13 +27,13 @@ namespace DAL.Entity
 
         public int PlantFK { get; set; }
 
-        public int VechFK { get; set; }
+        public int ModelFK { get; set; }
 
         public virtual Color Color { get; set; }
 
-        public virtual Plant Plant { get; set; }
+        public virtual Model Model { get; set; }
 
-        public virtual VehicleEquip VehicleEquip { get; set; }
+        public virtual Plant Plant { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Purchase> Purchase { get; set; }

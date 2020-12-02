@@ -26,6 +26,8 @@ namespace DAL.Entity
 
         public int EmpFK { get; set; }
 
+        public int VechTypeFK { get; set; }
+
         public virtual Automobile Automobile { get; set; }
 
         public virtual Client Client { get; set; }
@@ -35,5 +37,7 @@ namespace DAL.Entity
         public virtual ExtraServ ExtraServ { get; set; }
 
         public virtual PayType PayType { get; set; }
+
+        public virtual VehicleEquip VehicleEquip { get; set; }
     }
 }
