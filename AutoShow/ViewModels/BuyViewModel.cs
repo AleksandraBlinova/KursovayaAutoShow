@@ -10,6 +10,7 @@ using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace AutoShow.ViewModels
 {
@@ -18,6 +19,7 @@ namespace AutoShow.ViewModels
         int modelid; long cost; 
         private BuyAuto buyAuto;
         private DBOperations db;
+        bool manager;
         private ReCommand close; //закрыть окно
         
         public ReCommand Close_Win
@@ -51,9 +53,18 @@ namespace AutoShow.ViewModels
                 return choose ??
                   (choose = new ReCommand(obj =>
                   {
-                      ChooseCustEmp chooseCustEmp = new ChooseCustEmp(modelid, cost, Color, Equiptype);
-                      chooseCustEmp.ShowDialog();
-                      buyAuto.Close();
+                      if (Availability == true)
+                      {
+                          ChooseCustEmp chooseCustEmp = new ChooseCustEmp(modelid, cost, Color, Equiptype, manager);
+                          chooseCustEmp.ShowDialog();
+                          buyAuto.Close();
+                      }
+                      else 
+                      {
+                          MessageBox.Show("Автомобиля нет в наличии!");
+                          
+                      }
+                      
                   }));
             }
         }
@@ -211,10 +222,11 @@ namespace AutoShow.ViewModels
                 OnPropertyChanged("Equiptype");
             }
         }
-        public BuyViewModel(BuyAuto buyAuto)
+        public BuyViewModel(BuyAuto buyAuto, bool manager)
         {
             this.buyAuto = buyAuto;
             db = new DBOperations();
+            this.manager = manager;
             Brands = new ObservableCollection<BrandModel>(db.GetBrands());
             
         }

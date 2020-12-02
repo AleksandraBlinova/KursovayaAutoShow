@@ -1,6 +1,5 @@
 ﻿using AutoShow.Models;
 using AutoShow.View;
-using DAL.Entity;
 using DAL.Services;
 using DAL.ViewModels;
 using System;
@@ -14,13 +13,15 @@ using System.Threading.Tasks;
 
 namespace AutoShow.ViewModels
 {
-    public class AutoViewModel : INotifyPropertyChanged
+   public class ThanksBuyViewModel : INotifyPropertyChanged
     {
         private DBOperations db;
         private ReCommand close; //закрыть окно
-        private ReCommand back;
-        private ReCommand buy;
-        private bool manager;
+        private ReCommand ok;
+        private ReCommand menu_Manager;
+        long totalcost;
+        bool manager;
+       
         public ReCommand Close_Win
         {
             get
@@ -28,48 +29,59 @@ namespace AutoShow.ViewModels
                 return close ??
                   (close = new ReCommand(obj =>
                   {
-                      automobiles.Close(); 
+                      ThanksForPurch.Close();
                   }));
             }
         }
-        public ReCommand Back
+        public long TotalCost //скидка составила
         {
-            get
+            get { return totalcost; }
+            set
             {
-                return back ??
-                  (back = new ReCommand(obj =>
-                  {
-                      MenuManager menuManager = new MenuManager(manager);
-                      menuManager.ShowDialog();
-                      automobiles.Close();
-                  }));
+                totalcost = value;
+                OnPropertyChanged("Sale");
             }
         }
-        public ReCommand Buy
+        public ReCommand OK
         {
             get
             {
-                return buy ??
-                  (buy = new ReCommand(obj =>
+                return ok ??
+                  (ok = new ReCommand(obj =>
                   {
-                      BuyAuto buyAuto  = new BuyAuto(manager);
-                      buyAuto.ShowDialog();
-                      automobiles.Close();
+                      Purchases purchases  = new Purchases(manager);
+                      purchases.ShowDialog();
+                      ThanksForPurch.Close();
                   }));
             }
         }
 
-        public ObservableCollection<AutoModel> Autos { get; set; }
-
-        private Automobiles automobiles;
-        public AutoViewModel(Automobiles automobiles, bool manager)
+        public ReCommand Menu_Manager
         {
+            get
+            {
+                return menu_Manager ??
+                  (menu_Manager = new ReCommand(obj =>
+                  {
+                      MenuManager manag = new MenuManager(manager);
+                      manag.ShowDialog();
+                      ThanksForPurch.Close();
+                  }));
+            }
+        }
+
+        
+
+
+        private ThanksForPurch ThanksForPurch;
+        public ThanksBuyViewModel(ThanksForPurch thanksBuy, bool manager, long cost)
+        {
+            this.ThanksForPurch = thanksBuy;
             db = new DBOperations();
-
-            Autos = new ObservableCollection<AutoModel>(db.GetAllCars());
-            this.automobiles = automobiles;
             this.manager = manager;
+            TotalCost = cost;
         }
+
 
         public event PropertyChangedEventHandler PropertyChanged;
         public void OnPropertyChanged([CallerMemberName] string prop = "")
@@ -78,5 +90,7 @@ namespace AutoShow.ViewModels
                 PropertyChanged(this, new PropertyChangedEventArgs(prop));
         }
 
+
     }
 }
+

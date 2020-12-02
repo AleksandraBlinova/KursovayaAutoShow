@@ -20,10 +20,10 @@ namespace AutoShow.View
     /// </summary>
     public partial class BuyAuto : Window
     {
-        public BuyAuto()
+        public BuyAuto(bool manager)
         {
             InitializeComponent();
-            DataContext = new BuyViewModel(this);
+            DataContext = new BuyViewModel(this, manager);
           
         }
 

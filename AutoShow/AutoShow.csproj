@@ -111,6 +111,7 @@
     <Compile Include="ViewModels\ManagViewModel.cs" />
     <Compile Include="ViewModels\ReCommand.cs" />
     <Compile Include="ViewModels\StatisticViewModel.cs" />
+    <Compile Include="ViewModels\ThanksBuyViewModel.cs" />
     <Compile Include="ViewModels\TypePayViewModel.cs" />
     <Compile Include="View\Authorization.xaml.cs">
       <DependentUpon>Authorization.xaml</DependentUpon>
@@ -147,6 +148,9 @@
     </Compile>
     <Compile Include="View\Statistics.xaml.cs">
       <DependentUpon>Statistics.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\ThanksForPurch.xaml.cs">
+      <DependentUpon>ThanksForPurch.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\TypePay.xaml.cs">
       <DependentUpon>TypePay.xaml</DependentUpon>
@@ -200,6 +204,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\Statistics.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\ThanksForPurch.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

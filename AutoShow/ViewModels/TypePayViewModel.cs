@@ -10,12 +10,13 @@ using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace AutoShow.ViewModels
 {
   public  class TypePayViewModel : INotifyPropertyChanged
     {
-        int modelid; long cost; int color; int equip; int client; int emp;
+        int modelid; long cost; int color; int equip; int client; int emp; bool manager;
         private TypePay typePay;
         private DBOperations db;
         private ReCommand close; //закрыть окно
@@ -48,7 +49,7 @@ namespace AutoShow.ViewModels
                   (back = new ReCommand(obj =>
                   {
 
-                      ChooseCustEmp chooseCustEmp  = new ChooseCustEmp(modelid, cost, color, equip);
+                      ChooseCustEmp chooseCustEmp  = new ChooseCustEmp(modelid, cost, color, equip, manager);
                       chooseCustEmp.ShowDialog();
                       typePay.Close();
                   }));
@@ -77,7 +78,10 @@ namespace AutoShow.ViewModels
                       purch.EquipType = VechType.EquipType;
                       purch.Transm = Car.Transm;
                       purch.Id = db.CreatePurch(purch, Car.Id, client, emp, SelectedType.Id, VechType.Id);
-                    
+                      ThanksForPurch thanksForPurch  = new ThanksForPurch(manager, cost);
+                      thanksForPurch.ShowDialog();
+                      typePay.Close();
+
                   }));
             }
         }
@@ -100,7 +104,7 @@ namespace AutoShow.ViewModels
 
 
 
-        public TypePayViewModel(TypePay typePay, int modelid, long cost, int color, int equip, int client, int emp)
+        public TypePayViewModel(TypePay typePay, int modelid, long cost, int color, int equip, int client, int emp, bool manager)
         {
             
             db = new DBOperations();

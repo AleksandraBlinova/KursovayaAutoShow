@@ -64,7 +64,7 @@ WindowStyle="None"
     materialDesign:ButtonProgressAssist.Value="-1"
     materialDesign:ButtonProgressAssist.IsIndicatorVisible="True"
     materialDesign:ButtonProgressAssist.IsIndeterminate="True"
-    Content="НАЗАД"
+    Content="В МЕНЮ"
     Margin="42,598,788,52" Background="#FF030009" RenderTransformOrigin="0.518,-0.331" FontSize="20" />
         <Button Width="250" Height="35"
     Style="{StaticResource MaterialDesignRaisedButton}"

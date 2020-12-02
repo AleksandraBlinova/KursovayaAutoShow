@@ -16,14 +16,14 @@ using System.Windows.Shapes;
 namespace AutoShow.View
 {
     /// <summary>
-    /// Логика взаимодействия для ChooseCustEmp.xaml
+    /// Логика взаимодействия для ThanksForPurch.xaml
     /// </summary>
-    public partial class ChooseCustEmp : Window
+    public partial class ThanksForPurch : Window
     {
-        public ChooseCustEmp(int modelid, long cost,int color, int equip, bool manager)
+        public ThanksForPurch(bool manager, long cost)
         {
             InitializeComponent();
-            DataContext = new ChooseViewModel(this, modelid, cost, color, equip, manager);
+            DataContext = new ThanksBuyViewModel(this, manager, cost);
         }
     }
 }
