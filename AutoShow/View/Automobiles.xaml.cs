@@ -27,10 +27,10 @@ namespace AutoShow
     public partial class Automobiles : Window
     {
         
-        public Automobiles(bool manager)
+        public Automobiles(bool manager, string EmpFCS)
         {
             InitializeComponent();
-            DataContext = new AutoViewModel(this,manager);
+            DataContext = new AutoViewModel(this,manager, EmpFCS);
 
         }
 

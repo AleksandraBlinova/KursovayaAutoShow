@@ -5,6 +5,7 @@ using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Controls;
 using DAL.Entity;
 using DAL.Services;
@@ -14,7 +15,7 @@ namespace AutoShow.ViewModels
     public class AutorizationViewModel : INotifyPropertyChanged
     {
         private ReCommand close;
-        bool admin;
+         string EmpFCS;
         public ReCommand Close_Win
         {
             get
@@ -54,10 +55,12 @@ namespace AutoShow.ViewModels
                       if (employee != null && employee.Password.ToString() == _password)
                       {
                           bool manager = false;
+                          EmpFCS = employee.FCS;
                           if (employee.EmpType.EmpType1 == "Менеджер")
                           {
+
                               manager = true;
-                              MenuManager menuMan = new MenuManager(manager);
+                              MenuManager menuMan = new MenuManager(manager, EmpFCS);
                               authorization.Close();
                               menuMan.Show(); //открываем меню (менеджера)   
 
@@ -70,6 +73,7 @@ namespace AutoShow.ViewModels
                               menuAdm.Show(); //открываем меню (администрат) 
                           }
                       }
+                      else MessageBox.Show("Логин или пароль введены неверно!");
                   }));
             }
         }

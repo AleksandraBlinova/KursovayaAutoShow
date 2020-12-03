@@ -19,7 +19,7 @@ namespace AutoShow.ViewModels
         int modelid; long cost; 
         private BuyAuto buyAuto;
         private DBOperations db;
-        bool manager;
+        bool manager; string EmpFCS;
         private ReCommand close; //закрыть окно
         
         public ReCommand Close_Win
@@ -55,7 +55,7 @@ namespace AutoShow.ViewModels
                   {
                       if (Availability == true)
                       {
-                          ChooseCustEmp chooseCustEmp = new ChooseCustEmp(modelid, cost, Color, Equiptype, manager);
+                          ChooseCustEmp chooseCustEmp = new ChooseCustEmp(modelid, cost, Color, Equiptype, manager, EmpFCS);
                           chooseCustEmp.ShowDialog();
                           buyAuto.Close();
                       }
@@ -222,11 +222,12 @@ namespace AutoShow.ViewModels
                 OnPropertyChanged("Equiptype");
             }
         }
-        public BuyViewModel(BuyAuto buyAuto, bool manager)
+        public BuyViewModel(BuyAuto buyAuto, bool manager, string EmpFCS)
         {
             this.buyAuto = buyAuto;
             db = new DBOperations();
             this.manager = manager;
+            this.EmpFCS = EmpFCS;
             Brands = new ObservableCollection<BrandModel>(db.GetBrands());
             
         }

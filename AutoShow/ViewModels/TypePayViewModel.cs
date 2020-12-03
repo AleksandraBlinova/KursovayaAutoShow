@@ -16,12 +16,12 @@ namespace AutoShow.ViewModels
 {
   public  class TypePayViewModel : INotifyPropertyChanged
     {
-        int modelid; long cost; int color; int equip; int client; int emp; bool manager;
+        int modelid; long cost; int color; int equip; int client; string EmpFCS; bool manager;
         private TypePay typePay;
         private DBOperations db;
         private ReCommand close; //закрыть окно
         public ClientModel Client;
-        public EmployeeModel Employee;
+        EmployeeModel Employee;
         public VechTypeModel VechType;
         private PurchModel purch;
         public ObservableCollection<CarModel> Cars { get; set; } //коллекция авто по запросу
@@ -49,7 +49,7 @@ namespace AutoShow.ViewModels
                   (back = new ReCommand(obj =>
                   {
 
-                      ChooseCustEmp chooseCustEmp  = new ChooseCustEmp(modelid, cost, color, equip, manager);
+                      ChooseCustEmp chooseCustEmp  = new ChooseCustEmp(modelid, cost, color, equip, manager, EmpFCS);
                       chooseCustEmp.ShowDialog();
                       typePay.Close();
                   }));
@@ -66,7 +66,7 @@ namespace AutoShow.ViewModels
                   {
                       purch = new PurchModel();
                       purch.CliFCS = Client.FCS;
-                      purch.EmpFCS = Employee.FCS;
+                      purch.EmpFCS = EmpFCS;
                       purch.PurchDate = DateTime.Now.ToString();
                       purch.Brand = Car.Brand;
                       purch.Model = Car.Model;
@@ -77,8 +77,8 @@ namespace AutoShow.ViewModels
                       purch.PayType = SelectedType.PayType;
                       purch.EquipType = VechType.EquipType;
                       purch.Transm = Car.Transm;
-                      purch.Id = db.CreatePurch(purch, Car.Id, client, emp, SelectedType.Id, VechType.Id);
-                      ThanksForPurch thanksForPurch  = new ThanksForPurch(manager, cost);
+                      purch.Id = db.CreatePurch(purch, Car.Id, client, Employee.Id, SelectedType.Id, VechType.Id);
+                      ThanksForPurch thanksForPurch  = new ThanksForPurch(manager, cost, EmpFCS);
                       thanksForPurch.ShowDialog();
                       typePay.Close();
 
@@ -104,7 +104,7 @@ namespace AutoShow.ViewModels
 
 
 
-        public TypePayViewModel(TypePay typePay, int modelid, long cost, int color, int equip, int client, int emp, bool manager)
+        public TypePayViewModel(TypePay typePay, int modelid, long cost, int color, int equip, int client, string EmpFCS, bool manager)
         {
             
             db = new DBOperations();
@@ -112,12 +112,12 @@ namespace AutoShow.ViewModels
             this.modelid = modelid;
             this.cost = cost;
             this.client = client;
-            this.emp = emp;
+           
             this.color = color;
             this.equip = equip;
             this.typePay = typePay;
             Client = db.GetClient(client);
-            Employee = db.GetEmp(emp);
+            Employee = db.GetEmp(EmpFCS);
             VechType = db.GetEqType(equip);
             Cars = new ObservableCollection<CarModel>( db.GetCars(modelid,color));
             Car= db.GetCar(equip);

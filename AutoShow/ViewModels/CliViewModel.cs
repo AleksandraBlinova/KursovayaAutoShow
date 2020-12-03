@@ -18,6 +18,7 @@ namespace AutoShow.ViewModels
         private ReCommand close; //закрыть окно
         private ReCommand back;
         private bool manager;
+        string EmpFCS;
         public ReCommand Close_Win
         {
             get
@@ -36,7 +37,7 @@ namespace AutoShow.ViewModels
                 return back ??
                   (back = new ReCommand(obj =>
                   {
-                      MenuManager menuManager = new MenuManager(manager);
+                      MenuManager menuManager = new MenuManager(manager, EmpFCS);
                       menuManager.ShowDialog();
                       clients.Close();
                   }));
@@ -45,13 +46,14 @@ namespace AutoShow.ViewModels
         public ObservableCollection<ClientModel> clies { get; set; }
 
         private Clients clients;
-        public CliViewModel(Clients clients, bool manager)
+        public CliViewModel(Clients clients, bool manager, string EmpFCS)
         {
             db = new DBOperations();
 
             clies = new ObservableCollection<ClientModel>(db.GetAllClients());
             this.clients = clients;
             this.manager = manager;
+            this.EmpFCS = EmpFCS;
         }
 
         public event PropertyChangedEventHandler PropertyChanged;

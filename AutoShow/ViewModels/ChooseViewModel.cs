@@ -15,7 +15,7 @@ namespace AutoShow.ViewModels
 {
     public class ChooseViewModel : INotifyPropertyChanged
     {
-        int modelid; long cost; int color; int equip; bool manager;
+        int modelid; long cost; int color; int equip; bool manager; string EmpFCS;
         private ChooseCustEmp chooseCustEmp;
         private DBOperations db;
         private ReCommand close; //закрыть окно
@@ -41,7 +41,7 @@ namespace AutoShow.ViewModels
                   (back = new ReCommand(obj =>
                   {
 
-                      BuyAuto buyAuto  = new BuyAuto(manager);
+                      BuyAuto buyAuto  = new BuyAuto(manager, EmpFCS);
                       buyAuto.ShowDialog();
                       chooseCustEmp.Close();
                   }));
@@ -58,7 +58,7 @@ namespace AutoShow.ViewModels
                   (typepay = new ReCommand(obj =>
                   {
 
-                      TypePay typePay  = new TypePay(modelid, cost, color, equip, selectedClient.Id, selectedEmp.Id, manager);
+                      TypePay typePay  = new TypePay(modelid, cost, color, equip, selectedClient.Id, Employee, manager);
                       typePay.ShowDialog();
                       chooseCustEmp.Close();
                   }));
@@ -82,27 +82,27 @@ namespace AutoShow.ViewModels
 
 
 
-        public ObservableCollection<EmployeeModel> employees { get; set; }
+      
 
-        private EmployeeModel selectedEmp;
-        public EmployeeModel SelectedEmp
+        private string employee;
+        public string Employee
         {
-            get { return selectedEmp; }
+            get { return employee; }
             set
             {
-                selectedEmp = value;
-                OnPropertyChanged("SelectedEmp");
+                employee = value;
+                OnPropertyChanged("Employee");
 
             }
         }
 
 
-        public ChooseViewModel(ChooseCustEmp chooseCustEmp, int modelid, long cost, int color, int equip, bool manager)
+        public ChooseViewModel(ChooseCustEmp chooseCustEmp, int modelid, long cost, int color, int equip, bool manager, string EmpFCS)
         {
             this.chooseCustEmp = chooseCustEmp;
             db = new DBOperations();
             clients = new ObservableCollection<ClientModel>(db.GetAllClients());
-            employees = new ObservableCollection<EmployeeModel>(db.GetAllEmps());
+            Employee = EmpFCS;
             this.modelid = modelid;
             this.cost = cost;
             this.color = color;

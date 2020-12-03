@@ -21,6 +21,7 @@ namespace AutoShow.ViewModels
         private ReCommand back;
         private ReCommand buy;
         private bool manager;
+        private string EmpFCS;
         public ReCommand Close_Win
         {
             get
@@ -39,7 +40,7 @@ namespace AutoShow.ViewModels
                 return back ??
                   (back = new ReCommand(obj =>
                   {
-                      MenuManager menuManager = new MenuManager(manager);
+                      MenuManager menuManager = new MenuManager(manager, EmpFCS);
                       menuManager.ShowDialog();
                       automobiles.Close();
                   }));
@@ -52,7 +53,7 @@ namespace AutoShow.ViewModels
                 return buy ??
                   (buy = new ReCommand(obj =>
                   {
-                      BuyAuto buyAuto  = new BuyAuto(manager);
+                      BuyAuto buyAuto  = new BuyAuto(manager, EmpFCS);
                       buyAuto.ShowDialog();
                       automobiles.Close();
                   }));
@@ -62,13 +63,14 @@ namespace AutoShow.ViewModels
         public ObservableCollection<AutoModel> Autos { get; set; }
 
         private Automobiles automobiles;
-        public AutoViewModel(Automobiles automobiles, bool manager)
+        public AutoViewModel(Automobiles automobiles, bool manager, string EmpFCS)
         {
             db = new DBOperations();
 
             Autos = new ObservableCollection<AutoModel>(db.GetAllCars());
             this.automobiles = automobiles;
             this.manager = manager;
+            this.EmpFCS = EmpFCS;
         }
 
         public event PropertyChangedEventHandler PropertyChanged;

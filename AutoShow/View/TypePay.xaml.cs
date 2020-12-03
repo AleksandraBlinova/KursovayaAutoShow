@@ -20,10 +20,10 @@ namespace AutoShow.View
     /// </summary>
     public partial class TypePay : Window
     {
-        public TypePay(int modelid, long cost, int color, int eqip, int client, int emp, bool manager)
+        public TypePay(int modelid, long cost, int color, int eqip, int client, string EmpFCS, bool manager)
         {
             InitializeComponent();
-            DataContext = new TypePayViewModel(this, modelid, cost, color, eqip, client, emp, manager);
+            DataContext = new TypePayViewModel(this, modelid, cost, color, eqip, client, EmpFCS, manager);
         }
     }
 }

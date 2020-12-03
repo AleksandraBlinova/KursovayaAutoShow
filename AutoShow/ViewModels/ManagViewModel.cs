@@ -12,7 +12,7 @@ namespace AutoShow.ViewModels
 {
     class ManagViewModel : INotifyPropertyChanged
     {
-        bool manager;
+        bool manager; string EmpFCS;
         private ReCommand close;
         public ReCommand Close_Win
         {
@@ -51,7 +51,7 @@ namespace AutoShow.ViewModels
                   (cars = new ReCommand(obj =>
                   {
 
-                      Automobiles automobiles = new Automobiles(manager);
+                      Automobiles automobiles = new Automobiles(manager, EmpFCS);
                       automobiles.ShowDialog();
                       menuMan.Close();
                   }));
@@ -67,7 +67,7 @@ namespace AutoShow.ViewModels
                   (purchase = new ReCommand(obj =>
                   {
 
-                      Purchases purchases   = new Purchases(manager);
+                      Purchases purchases   = new Purchases(manager, EmpFCS);
                       purchases.ShowDialog();
                       menuMan.Close();
                   }));
@@ -83,7 +83,7 @@ namespace AutoShow.ViewModels
                   (clients = new ReCommand(obj =>
                   {
 
-                      Clients clients = new Clients(manager);
+                      Clients clients = new Clients(manager, EmpFCS);
                       clients.ShowDialog();
                       menuMan.Close();
                   }));
@@ -91,10 +91,11 @@ namespace AutoShow.ViewModels
         }
 
         private MenuManager menuMan;
-        public ManagViewModel(MenuManager menuMan, bool manager)
+        public ManagViewModel(MenuManager menuMan, bool manager, string EmpFCS)
         {
             this.menuMan = menuMan;
             this.manager = manager;
+            this.EmpFCS = EmpFCS;
         }
         public event PropertyChangedEventHandler PropertyChanged;
         public void OnPropertyChanged([CallerMemberName] string prop = "")

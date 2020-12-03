@@ -20,8 +20,9 @@ namespace AutoShow.ViewModels
         private ReCommand ok;
         private ReCommand menu_Manager;
         long totalcost;
-        bool manager;
-       
+        bool manager; string EmpFCS;
+
+
         public ReCommand Close_Win
         {
             get
@@ -49,7 +50,7 @@ namespace AutoShow.ViewModels
                 return ok ??
                   (ok = new ReCommand(obj =>
                   {
-                      Purchases purchases  = new Purchases(manager);
+                      Purchases purchases  = new Purchases(manager, EmpFCS);
                       purchases.ShowDialog();
                       ThanksForPurch.Close();
                   }));
@@ -63,7 +64,7 @@ namespace AutoShow.ViewModels
                 return menu_Manager ??
                   (menu_Manager = new ReCommand(obj =>
                   {
-                      MenuManager manag = new MenuManager(manager);
+                      MenuManager manag = new MenuManager(manager, EmpFCS);
                       manag.ShowDialog();
                       ThanksForPurch.Close();
                   }));
@@ -74,12 +75,13 @@ namespace AutoShow.ViewModels
 
 
         private ThanksForPurch ThanksForPurch;
-        public ThanksBuyViewModel(ThanksForPurch thanksBuy, bool manager, long cost)
+        public ThanksBuyViewModel(ThanksForPurch thanksBuy, bool manager, long cost, string EmpFCS)
         {
             this.ThanksForPurch = thanksBuy;
             db = new DBOperations();
             this.manager = manager;
             TotalCost = cost;
+            this.EmpFCS = EmpFCS;
         }
 
 

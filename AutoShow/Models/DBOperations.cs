@@ -31,7 +31,11 @@ namespace AutoShow.Models
             return db.Employee.ToList().Select(i => new EmployeeModel(i)).ToList();
         }
 
-     
+        public List<EmployeeModel> GetManagers()
+        {
+            return db.Employee.ToList().Select(e => new EmployeeModel(e)).Where(i => i.EmpType == "Менеджер").ToList();
+        }
+
         public List<PurchModel> GetAllPurchs()
         {
             return db.Purchase.ToList().Select(i => new PurchModel(i)).ToList();
@@ -61,9 +65,9 @@ namespace AutoShow.Models
             return new ClientModel(db.Client.Find(Id));
         }
 
-        public EmployeeModel GetEmp(int Id)
+        public EmployeeModel GetEmp(string EmpFCS)
         {
-            return new EmployeeModel(db.Employee.Find(Id));
+            return db.Employee.ToList().Select(a => new EmployeeModel(a)).Where(i => i.FCS == EmpFCS ).FirstOrDefault();
         }
         public VechTypeModel GetEqType(int Id)
         {

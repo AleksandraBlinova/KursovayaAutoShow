@@ -28,10 +28,10 @@ namespace AutoShow
     public partial class Clients : Window
     {
         
-        public Clients(bool manager)
+        public Clients(bool manager, string EmpFCS)
         {
             InitializeComponent();
-            DataContext = new CliViewModel(this, manager);
+            DataContext = new CliViewModel(this, manager, EmpFCS);
 
 
         }

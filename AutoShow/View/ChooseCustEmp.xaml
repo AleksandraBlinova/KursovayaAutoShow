@@ -106,9 +106,7 @@ WindowStyle="None"
     Margin="10,42.6,460.8,4.8" Background="#FF030009" RenderTransformOrigin="0.518,-0.331" Grid.Row="2" FontSize="20" />
         <WrapPanel  HorizontalAlignment="Left" Height="156" Margin="23.2,164.6,0,0" Grid.Row="1" VerticalAlignment="Top" Width="300" Background="White" Grid.Column="1">
             <Label Margin="10" Content="cотрудник:"  HorizontalAlignment="Left" VerticalAlignment="Top" Width="158" Background="White" FontSize="24" Height="32"/>
-            <ComboBox Width="228" Margin="10" x:Name="Employee" ItemsSource="{Binding employees}" SelectedItem="{Binding SelectedEmp}"
-                IsEditable="True" 
-                DisplayMemberPath="FCS" IsSynchronizedWithCurrentItem="True" Height="45" FontSize="18" FontWeight="Bold"/>
+            <TextBox Margin="10" x:Name="Plant"  Text="{Binding Path=Employee}" HorizontalAlignment="Left" Height="55" TextWrapping="Wrap"  VerticalAlignment="Top" Width="270" Background="White" FontSize="18" FontWeight="Bold"/>
 
         </WrapPanel>
         <Button Width="250" Height="35"

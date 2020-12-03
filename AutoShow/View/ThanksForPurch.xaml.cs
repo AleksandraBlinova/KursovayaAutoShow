@@ -20,10 +20,10 @@ namespace AutoShow.View
     /// </summary>
     public partial class ThanksForPurch : Window
     {
-        public ThanksForPurch(bool manager, long cost)
+        public ThanksForPurch(bool manager, long cost, string EmpFCS)
         {
             InitializeComponent();
-            DataContext = new ThanksBuyViewModel(this, manager, cost);
+            DataContext = new ThanksBuyViewModel(this, manager, cost, EmpFCS);
         }
     }
 }
