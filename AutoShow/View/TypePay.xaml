@@ -66,7 +66,7 @@ WindowStyle="None"
             </Rectangle.Fill>
 
         </Rectangle>
-        <WrapPanel Grid.Row="1" Margin="401,137.6,69.8,166.6" Orientation="Vertical" Background="White"   >
+        <WrapPanel Grid.Row="1" Margin="145,111.6,325.8,192.6" Orientation="Vertical" Background="White"   >
             <Label Margin="10" FontSize="20" 
                    FontFamily="Champagne &amp; Limousines">
                 <Label.Content>
@@ -86,7 +86,7 @@ WindowStyle="None"
                    FontFamily="Champagne &amp; Limousines" Height="33"/>
         </WrapPanel>
 
-        <Label Content="ПРОДОЛЖИТЬ ОФОРМЛЕНИЕ ПОКУПКИ" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="251,9,317,0" Foreground="#FF070910" FontSize="32" FontWeight="Bold" FontFamily="Segoe UI Black" BorderBrush="White" Grid.ColumnSpan="2" Width="512"/>
+        <Label Content="ПРОДОЛЖИТЬ ОФОРМЛЕНИЕ ПОКУПКИ" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="247,8,321,0" Foreground="#FF070910" FontSize="32" FontWeight="Bold" FontFamily="Segoe UI Black" BorderBrush="White" Grid.ColumnSpan="2" Width="512"/>
         <materialDesign:PackIcon Kind="Car" Foreground="#FFAE93ED" Width="121" Height="51" HorizontalAlignment="Center" Margin="0.2,8,238,0" Grid.Column="1" />
 
         <Button Command="{Binding Close_Win}" x:Name="Butclose"  Width="60" Height="60" HorizontalAlignment="Right" VerticalAlignment="Top" Style="{StaticResource ButtonClose}" Background="{x:Null}" BorderBrush="{x:Null}" Margin="0,0,0.4,0" Grid.RowSpan="2" Grid.Column="1" />
@@ -104,6 +104,24 @@ WindowStyle="None"
     materialDesign:ButtonProgressAssist.IsIndeterminate="True"
     Content="НАЗАД"
     Margin="10,42.6,460.8,4.8" Background="#FF030009" RenderTransformOrigin="0.518,-0.331" Grid.Row="2" FontSize="20" />
+        <Label Content="ДОПОЛНИТЕЛЬНАЯ УСЛУГА" HorizontalAlignment="Left" Margin="611,53.6,0,0" Grid.Row="1" VerticalAlignment="Top" Foreground="#DDD60D0D" Grid.ColumnSpan="2" Width="356" FontWeight="Bold" FontSize="24"/>
+        <WrapPanel Grid.Row="1" Margin="667,111.6,163,192.6" Orientation="Vertical" Background="White" Grid.ColumnSpan="2"   >
+            <Label Margin="10" FontSize="20" 
+                FontFamily="Champagne &amp; Limousines">
+                <TextBlock TextWrapping="Wrap" FontSize="20" FontWeight="Bold"><Run Text="Выберите:"/></TextBlock>
+            </Label>
+            <Label Margin="10" FontSize="16" 
+                FontFamily="Champagne &amp; Limousines" Height="36">
+                <TextBlock FontSize="24"><Run Text="доп.услуга:"
+                                 /></TextBlock>
+            </Label>
+            <ComboBox Width="220" Margin="10" x:Name="PayType1" ItemsSource="{Binding extraserv}" SelectedItem="{Binding SelectedExtraServ}"
+                IsEditable="True" 
+                DisplayMemberPath="ServName" IsSynchronizedWithCurrentItem="True" Height="43" FontSize="18" Foreground="#DD000000" FontWeight="Bold"/>
+
+            <Label Margin="10" FontSize="16" 
+                FontFamily="Champagne &amp; Limousines" Height="33"/>
+        </WrapPanel>
 
 
 

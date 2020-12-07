@@ -73,11 +73,12 @@ namespace AutoShow.ViewModels
                       purch.Plant = Car.Plant;
                       purch.Color = Car.Color;
                       purch.ReleaseYear = Car.ReleaseYear;
-                      purch.TotalCost = cost;
                       purch.PayType = SelectedType.PayType;
                       purch.EquipType = VechType.EquipType;
                       purch.Transm = Car.Transm;
-                      purch.Id = db.CreatePurch(purch, Car.Id, client, Employee.Id, SelectedType.Id, VechType.Id);
+                      purch.ExtraServ = SelectedExtraServ.ServName;
+                      purch.TotalCost = (long)(cost + SelectedExtraServ.ServCost);
+                      purch.Id = db.CreatePurch(purch, Car.Id, client, Employee.Id, SelectedType.Id, VechType.Id,SelectedExtraServ.Id);
                       ThanksForPurch thanksForPurch  = new ThanksForPurch(manager, cost, EmpFCS);
                       thanksForPurch.ShowDialog();
                       typePay.Close();
@@ -102,13 +103,26 @@ namespace AutoShow.ViewModels
         }
 
 
+        public ObservableCollection<ExtraServModel> extraserv { get; set; }
 
+        private ExtraServModel selectedextraServ;
+        public ExtraServModel SelectedExtraServ
+        {
+            get { return selectedextraServ; }
+            set
+            {
+                selectedextraServ = value;
+                OnPropertyChanged("SelectedExtraServ");
+
+            }
+        }
 
         public TypePayViewModel(TypePay typePay, int modelid, long cost, int color, int equip, int client, string EmpFCS, bool manager)
         {
             
             db = new DBOperations();
             paytype = new ObservableCollection<PayTypeModel>(db.GetTypes());
+            extraserv= new ObservableCollection<ExtraServModel>(db.GetExtraServ());
             this.modelid = modelid;
             this.cost = cost;
             this.client = client;

@@ -82,6 +82,11 @@ namespace AutoShow.Models
         {
             return db.PayType.ToList().Select(i => new PayTypeModel(i)).ToList();
         }
+
+        public List<ExtraServModel> GetExtraServ()
+        {
+            return db.ExtraServ.ToList().Select(i => new ExtraServModel(i)).ToList();
+        }
         public List<AutoModel> GetModels(int brand)
         {
             return db.Automobile.Join(db.Model, a => a.ModelFK, m => m.Id, (a, m) => a)
@@ -154,7 +159,7 @@ namespace AutoShow.Models
         }
 
 
-        public int CreatePurch(PurchModel purchModel, int carid, int clientid, int empid, int paytypeid, int vechtype)//создать покупку авто
+        public int CreatePurch(PurchModel purchModel, int carid, int clientid, int empid, int paytypeid, int vechtype, int extraserv)//создать покупку авто
         {
             Purchase purchase  = new Purchase();
             string date = purchModel.PurchDate;
@@ -165,6 +170,7 @@ namespace AutoShow.Models
             purchase.ClientFK = clientid;
             purchase.EmpFK =empid;
             purchase.VechTypeFK= vechtype;
+            purchase.ExtraSevFK = extraserv;
             db.Purchase.Add(purchase);
             
             Save();

@@ -90,6 +90,24 @@ namespace AutoShow.ViewModels
             }
         }
 
+
+
+        private ReCommand extraserv;
+        public ReCommand Extraserv
+        {
+            get
+            {
+                return extraserv ??
+                  (extraserv = new ReCommand(obj =>
+                  {
+
+                      PriceExtraServ extraServ  = new PriceExtraServ(manager, EmpFCS);
+                      extraServ.ShowDialog();
+                      menuMan.Close();
+                  }));
+            }
+        }
+
         private MenuManager menuMan;
         public ManagViewModel(MenuManager menuMan, bool manager, string EmpFCS)
         {

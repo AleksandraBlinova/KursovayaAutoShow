@@ -18,6 +18,7 @@ namespace DAL.Entity
         public int Id { get; set; }
 
         [StringLength(20)]
+       
         public string ServName { get; set; }
 
         public int? ServCost { get; set; }

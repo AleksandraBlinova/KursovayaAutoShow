@@ -11,26 +11,19 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
-using DAL.ViewModels;
-using DAL.Services;
 using AutoShow.ViewModels;
 
 namespace AutoShow.View
 {
     /// <summary>
-    /// Логика взаимодействия для Purchases.xaml
+    /// Логика взаимодействия для PriceExtraServ.xaml
     /// </summary>
-    public partial class Purchases : Window
+    public partial class PriceExtraServ : Window
     {
-
-       
-            public Purchases(bool manager, string EmpFCS)
-            {
+        public PriceExtraServ(bool manager, string EmpFCS)
+        {
             InitializeComponent();
-            DataContext = new AllPurchsViewModel(this, manager, EmpFCS);
-            }
-
-
+            DataContext = new ExtraServViewModel(this, manager, EmpFCS);
+        }
     }
-    
 }

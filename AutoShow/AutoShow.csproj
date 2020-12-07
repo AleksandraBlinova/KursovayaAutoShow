@@ -96,6 +96,7 @@
     <Compile Include="Models\ColorModel.cs" />
     <Compile Include="Models\DBOperations.cs" />
     <Compile Include="Models\EmployeeModel.cs" />
+    <Compile Include="Models\ExtraServModel.cs" />
     <Compile Include="Models\PayTypeModel.cs" />
     <Compile Include="Models\PlantModel.cs" />
     <Compile Include="Models\PurchModel.cs" />
@@ -108,6 +109,7 @@
     <Compile Include="ViewModels\ChooseViewModel.cs" />
     <Compile Include="ViewModels\CliViewModel.cs" />
     <Compile Include="ViewModels\EmpViewModel.cs" />
+    <Compile Include="ViewModels\ExtraServViewModel.cs" />
     <Compile Include="ViewModels\ManagViewModel.cs" />
     <Compile Include="ViewModels\ReCommand.cs" />
     <Compile Include="ViewModels\StatisticViewModel.cs" />
@@ -142,6 +144,9 @@
     </Compile>
     <Compile Include="View\Order.xaml.cs">
       <DependentUpon>Order.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\PriceExtraServ.xaml.cs">
+      <DependentUpon>PriceExtraServ.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\Purchases.xaml.cs">
       <DependentUpon>Purchases.xaml</DependentUpon>
@@ -196,6 +201,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\Order.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\PriceExtraServ.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
