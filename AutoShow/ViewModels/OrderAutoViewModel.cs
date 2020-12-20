@@ -59,16 +59,7 @@ namespace AutoShow.ViewModels
                 return choose ??
                   (choose = new ReCommand(obj =>
                   {
-                      //if (Availability == false)
-                      //{
-
-
-                      //}
-                      //else
-                      //{
-                      //    MessageBox.Show("Автомобиль есть в наличии!");
-
-                      //}
+                     
                       car = new AutoModel();
                       car.Availability = false;
                       car.Brand = SelectedBrand.Brand1;
@@ -139,7 +130,7 @@ namespace AutoShow.ViewModels
                 VechType = new ObservableCollection<VechTypeModel>(db.GetVechType(selectedModel.Id));
                 modelid = selectedModel.Id;
                 Color = SelectedColor.Id;
-                //Availability = selectedModel.Availability;
+
 
             }
         }
@@ -160,8 +151,6 @@ namespace AutoShow.ViewModels
             set
             {
                 selectedColor = value;
-
-                //Availability = db.GetAvailability(selectedModel.Id, selectedColor.Id);
                 OnPropertyChanged("SelectedColor");
             }
         }

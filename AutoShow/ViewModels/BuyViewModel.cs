@@ -160,7 +160,7 @@ namespace AutoShow.ViewModels
                 selectedColor = value;
                 Price = db.GetPrice(selectedModel.Id, selectedColor.Id).ToString();
                 Release = db.GetYear(selectedModel.Id, selectedColor.Id).ToString();
-                Availability = db.GetAvailability(selectedModel.Id, selectedColor.Id);//!!!!!!!!!!!!!!!! + КОГДА ПОКУПАЮ АВТО ДЕЛАТЬ FALSE
+                Availability = db.GetAvailability(selectedModel.Id, selectedColor.Id);
                 OnPropertyChanged("SelectedColor"); 
             }
         }

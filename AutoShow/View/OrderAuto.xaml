@@ -153,9 +153,6 @@ WindowStyle="None"
 
         </WrapPanel>
         <Label Content="ЗАКАЗ АВТОМОБИЛЯ" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="353,0,359,0" FontSize="32" FontWeight="Bold" FontFamily="Segoe UI Black" BorderBrush="#FF1B0101" Width="368" Background="{x:Null}" Foreground="#FFAE0519" Grid.ColumnSpan="2"/>
-        <WrapPanel Grid.Column="1" HorizontalAlignment="Left" Height="101" Margin="44.2,180.2,0,0" Grid.Row="1" VerticalAlignment="Top" Width="286" Background="#FF8EC7DB">
-            <CheckBox Margin="10"  IsChecked="{Binding Availability, Mode=TwoWay}" Content="Статус автомобиля" materialDesign:CheckBoxAssist.CheckBoxSize="30"  Height="68" FontSize="24" BorderBrush="#FF350093" Width="259" FontWeight="Bold" />
-        </WrapPanel>
 
 
 
