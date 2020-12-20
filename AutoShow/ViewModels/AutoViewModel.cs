@@ -11,6 +11,7 @@ using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Data;
 
 namespace AutoShow.ViewModels
 {
@@ -56,6 +57,37 @@ namespace AutoShow.ViewModels
                       BuyAuto buyAuto  = new BuyAuto(manager, EmpFCS);
                       buyAuto.ShowDialog();
                       automobiles.Close();
+                  }));
+            }
+        }
+
+        private ReCommand delete;
+        public ReCommand Delete
+        {
+            get
+            {
+                return delete ??
+                  (delete = new ReCommand(obj =>
+                  {
+                      AutoModel row = (AutoModel)automobiles.DataGCars.SelectedItems[0];
+                      ObservableCollection<AutoModel> data = (ObservableCollection<AutoModel>)automobiles.DataGCars.ItemsSource;
+                      data.Remove(row);
+                  }));
+            }
+        }
+
+        private ReCommand changeAvail;
+        public ReCommand ChangeAvail
+        {
+            get
+            {
+                return changeAvail ??
+                  (changeAvail = new ReCommand(obj =>
+                  {
+                      AutoModel row = (AutoModel)automobiles.DataGCars.SelectedItems[0];
+                      db.ChangeAvail(row);
+                      
+
                   }));
             }
         }

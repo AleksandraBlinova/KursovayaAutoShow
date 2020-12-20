@@ -12,6 +12,7 @@ namespace DAL.Entity
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public VehicleEquip()
         {
+            Order = new HashSet<Order>();
             Purchase = new HashSet<Purchase>();
         }
 
@@ -30,6 +31,9 @@ namespace DAL.Entity
         public int TransmFK { get; set; }
 
         public virtual Model Model { get; set; }
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Order> Order { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Purchase> Purchase { get; set; }

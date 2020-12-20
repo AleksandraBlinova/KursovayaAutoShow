@@ -13,18 +13,17 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
-namespace AutoShow
+namespace AutoShow.View
 {
     /// <summary>
-    /// Логика взаимодействия для Order.xaml
+    /// Логика взаимодействия для ThanksForOrder.xaml
     /// </summary>
-    public partial class Order : Window
+    public partial class ThanksForOrder : Window
     {
-        public Order(bool manager, string EmpFCS)
+        public ThanksForOrder(bool manager, long cost, string EmpFCS)
         {
             InitializeComponent();
-            DataContext = new OrderViewModel(this, manager, EmpFCS);
+            DataContext = new ThankOrdViewModel(this, manager, cost, EmpFCS);
         }
-
     }
 }

@@ -67,6 +67,7 @@
     <Compile Include="Entity\ExtraServ.cs" />
     <Compile Include="Entity\Gender.cs" />
     <Compile Include="Entity\Model.cs" />
+    <Compile Include="Entity\Order.cs" />
     <Compile Include="Entity\PayType.cs" />
     <Compile Include="Entity\Plant.cs" />
     <Compile Include="Entity\Purchase.cs" />

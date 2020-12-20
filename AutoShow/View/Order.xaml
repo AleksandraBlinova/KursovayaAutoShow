@@ -59,22 +59,29 @@ WindowStyle="None"
         </Rectangle>
         <Label Content="ЗАКАЗ АВТОМОБИЛЯ" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="383,41,329.4,0" Foreground="#FF070910" FontSize="32" FontWeight="Bold" FontFamily="Segoe UI Black" BorderBrush="White" Width="368"/>
 
-        <Button Width="60" Height="60" HorizontalAlignment="Right" VerticalAlignment="Top" Style="{StaticResource ButtonClose}" Background="{x:Null}" BorderBrush="{x:Null}" />
-        <Button Width="250" Height="35"
+        <Button Command="{Binding Close_Win}" Width="60" Height="60" HorizontalAlignment="Right" VerticalAlignment="Top" Style="{StaticResource ButtonClose}" Background="{x:Null}" BorderBrush="{x:Null}" />
+        <Button Command="{Binding Back}" Width="250" Height="35"
     Style="{StaticResource MaterialDesignRaisedButton}"
     materialDesign:ButtonProgressAssist.Value="-1"
     materialDesign:ButtonProgressAssist.IsIndicatorVisible="True"
     materialDesign:ButtonProgressAssist.IsIndeterminate="True"
-    Content="НАЗАД"
+    Content="В МЕНЮ"
     Margin="42,635,788.4,7.4" Background="#FF030009" RenderTransformOrigin="0.518,-0.331" FontSize="20" />
-        <Button Width="250" Height="35"
+        <Button Command="{Binding Order}" Width="250" Height="35"
     Style="{StaticResource MaterialDesignRaisedButton}"
     materialDesign:ButtonProgressAssist.Value="-1"
     materialDesign:ButtonProgressAssist.IsIndicatorVisible="True"
     materialDesign:ButtonProgressAssist.IsIndeterminate="True"
     Content="ЗАКАЗАТЬ"
     Margin="787,635,42,7.4" Background="#FF030009" RenderTransformOrigin="0.518,-0.331" FontSize="20" />
-        <DataGrid HorizontalAlignment="Left" Height="382" Margin="42,176,0,0" VerticalAlignment="Top" Width="592"/>
+        <DataGrid x:Name="DataGOrders"  SelectionUnit="FullRow" ItemsSource="{Binding AllOrders}" HorizontalAlignment="Left" Height="382" Margin="10,140,0,0" VerticalAlignment="Top" Width="769"/>
+        <Button Command="{Binding LittleRep}" Height="35"
+            Style="{StaticResource MaterialDesignRaisedButton}"
+            materialDesign:ButtonProgressAssist.Value="-1"
+            materialDesign:ButtonProgressAssist.IsIndicatorVisible="True"
+            materialDesign:ButtonProgressAssist.IsIndeterminate="True"
+            Content="СФОРМИРОВАТЬ ОТЧЁТ"
+            Margin="810,207,10.4,435.4" Background="#FF009CED" RenderTransformOrigin="0.518,-0.331" FontSize="20" BorderBrush="Black" />
 
 
 

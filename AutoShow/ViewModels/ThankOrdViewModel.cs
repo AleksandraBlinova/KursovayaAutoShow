@@ -1,10 +1,8 @@
 ﻿using AutoShow.Models;
 using AutoShow.View;
 using DAL.Services;
-using DAL.ViewModels;
 using System;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
 using System.Runtime.CompilerServices;
@@ -13,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace AutoShow.ViewModels
 {
-   public class ThanksBuyViewModel : INotifyPropertyChanged
+    public class ThankOrdViewModel : INotifyPropertyChanged
     {
         private DBOperations db;
         private ReCommand close; //закрыть окно
@@ -30,7 +28,7 @@ namespace AutoShow.ViewModels
                 return close ??
                   (close = new ReCommand(obj =>
                   {
-                      ThanksForPurch.Close();
+                      thanksForOrder.Close();
                   }));
             }
         }
@@ -50,9 +48,9 @@ namespace AutoShow.ViewModels
                 return ok ??
                   (ok = new ReCommand(obj =>
                   {
-                      Purchases purchases  = new Purchases(manager, EmpFCS);
-                      purchases.ShowDialog();
-                      ThanksForPurch.Close();
+                     Order order  = new Order(manager, EmpFCS);
+                      order.ShowDialog();
+                      thanksForOrder.Close();
                   }));
             }
         }
@@ -66,18 +64,18 @@ namespace AutoShow.ViewModels
                   {
                       MenuManager manag = new MenuManager(manager, EmpFCS);
                       manag.ShowDialog();
-                      ThanksForPurch.Close();
+                      thanksForOrder.Close();
                   }));
             }
         }
 
-        
 
 
-        private ThanksForPurch ThanksForPurch;
-        public ThanksBuyViewModel(ThanksForPurch thanksBuy, bool manager, long cost, string EmpFCS)
+
+        private ThanksForOrder thanksForOrder;
+        public ThankOrdViewModel(ThanksForOrder thanksForOrder , bool manager, long cost, string EmpFCS)
         {
-            this.ThanksForPurch = thanksBuy;
+            this.thanksForOrder = thanksForOrder;
             db = new DBOperations();
             this.manager = manager;
             TotalCost = cost;

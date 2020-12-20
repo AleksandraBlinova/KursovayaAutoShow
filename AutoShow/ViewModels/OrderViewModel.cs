@@ -1,6 +1,5 @@
 ﻿using AutoShow.Models;
 using AutoShow.View;
-using DAL.Entity;
 using DAL.Services;
 using DAL.ViewModels;
 using System;
@@ -14,12 +13,13 @@ using System.Threading.Tasks;
 
 namespace AutoShow.ViewModels
 {
-    public class AllPurchsViewModel : INotifyPropertyChanged
+   public class OrderViewModel : INotifyPropertyChanged
     {
         private DBOperations db;
         private ReCommand close; //закрыть окно
         private ReCommand back;
         private bool manager; string EmpFCS; int selectedId; string formname;
+        private ReCommand ord;
         public ReCommand Close_Win
         {
             get
@@ -27,7 +27,7 @@ namespace AutoShow.ViewModels
                 return close ??
                   (close = new ReCommand(obj =>
                   {
-                      purchases.Close();
+                      order.Close();
                   }));
             }
         }
@@ -38,12 +38,14 @@ namespace AutoShow.ViewModels
                 return back ??
                   (back = new ReCommand(obj =>
                   {
-                      MenuManager menuManager = new MenuManager(manager,EmpFCS);
+                      MenuManager menuManager = new MenuManager(manager, EmpFCS);
                       menuManager.ShowDialog();
-                      purchases.Close();
+                      order.Close();
                   }));
             }
         }
+
+
 
         private ReCommand littlerep;
         public ReCommand LittleRep
@@ -53,27 +55,40 @@ namespace AutoShow.ViewModels
                 return littlerep ??
                   (littlerep = new ReCommand(obj =>
                   {
-                      PurchModel row = (PurchModel)purchases.DataGPurches.SelectedItems[0];
+                      OrderModel row = (OrderModel)order.DataGOrders.SelectedItems[0];
                       selectedId = (int)row.Id;
-                      formname = "Purchase";
-                      LittleReport littleReport  = new LittleReport(manager, EmpFCS, selectedId, formname);
+                      formname = "Order";
+                      LittleReport littleReport = new LittleReport(manager, EmpFCS, selectedId, formname);
                       littleReport.ShowDialog();
-                      purchases.Close();
+                      order.Close();
                   }));
             }
         }
 
 
 
-        public ObservableCollection<PurchModel> AllPurchs { get; set; }
+        public ReCommand Order
+        {
+            get
+            {
+                return ord ??
+                  (ord = new ReCommand(obj =>
+                  {
+                      OrderAuto orderAuto = new OrderAuto(manager, EmpFCS);
+                      orderAuto.ShowDialog();
+                      order.Close();
+                  }));
+            }
+        }
+        public ObservableCollection<OrderModel> AllOrders { get; set; }
 
-        private Purchases purchases;
-        public AllPurchsViewModel(Purchases purchases, bool manager, string EmpFCS)
+        private Order order ;
+        public OrderViewModel(Order order, bool manager, string EmpFCS)
         {
             db = new DBOperations();
 
-            AllPurchs = new ObservableCollection<PurchModel>(db.GetAllPurchs());
-            this.purchases = purchases;
+            AllOrders = new ObservableCollection<OrderModel>(db.GetAllOrders());
+            this.order = order;
             this.manager = manager;
             this.EmpFCS = EmpFCS;
         }
@@ -85,6 +100,6 @@ namespace AutoShow.ViewModels
                 PropertyChanged(this, new PropertyChangedEventArgs(prop));
         }
 
-    
+
     }
 }

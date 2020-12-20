@@ -91,28 +91,33 @@
     </ApplicationDefinition>
     <Compile Include="Models\AutoModel.cs" />
     <Compile Include="Models\BrandModel.cs" />
-    <Compile Include="Models\CarModel.cs" />
     <Compile Include="Models\ClientModel.cs" />
     <Compile Include="Models\ColorModel.cs" />
     <Compile Include="Models\DBOperations.cs" />
     <Compile Include="Models\EmployeeModel.cs" />
     <Compile Include="Models\ExtraServModel.cs" />
+    <Compile Include="Models\OrderModel.cs" />
     <Compile Include="Models\PayTypeModel.cs" />
     <Compile Include="Models\PlantModel.cs" />
     <Compile Include="Models\PurchModel.cs" />
+    <Compile Include="Models\TransmissionModel.cs" />
     <Compile Include="Models\VechTypeModel.cs" />
     <Compile Include="ViewModels\AdminViewModel.cs" />
     <Compile Include="ViewModels\AllPurchsViewModel.cs" />
     <Compile Include="ViewModels\AutorizationViewModel.cs" />
     <Compile Include="ViewModels\AutoViewModel.cs" />
     <Compile Include="ViewModels\BuyViewModel.cs" />
+    <Compile Include="ViewModels\ChooseOrderViewModel.cs" />
     <Compile Include="ViewModels\ChooseViewModel.cs" />
     <Compile Include="ViewModels\CliViewModel.cs" />
     <Compile Include="ViewModels\EmpViewModel.cs" />
     <Compile Include="ViewModels\ExtraServViewModel.cs" />
+    <Compile Include="ViewModels\LittleReportViewModel.cs" />
     <Compile Include="ViewModels\ManagViewModel.cs" />
+    <Compile Include="ViewModels\OrderAutoViewModel.cs" />
+    <Compile Include="ViewModels\OrderViewModel.cs" />
     <Compile Include="ViewModels\ReCommand.cs" />
-    <Compile Include="ViewModels\StatisticViewModel.cs" />
+    <Compile Include="ViewModels\ThankOrdViewModel.cs" />
     <Compile Include="ViewModels\ThanksBuyViewModel.cs" />
     <Compile Include="ViewModels\TypePayViewModel.cs" />
     <Compile Include="View\Authorization.xaml.cs">
@@ -127,6 +132,9 @@
     <Compile Include="View\ChooseCustEmp.xaml.cs">
       <DependentUpon>ChooseCustEmp.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\ChooseOrder.xaml.cs">
+      <DependentUpon>ChooseOrder.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\Clients.xaml.cs">
       <DependentUpon>Clients.xaml</DependentUpon>
     </Compile>
@@ -135,6 +143,9 @@
     </Compile>
     <Compile Include="View\Employees.xaml.cs">
       <DependentUpon>Employees.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\LittleReport.xaml.cs">
+      <DependentUpon>LittleReport.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\MenuAdministr.xaml.cs">
       <DependentUpon>MenuAdministr.xaml</DependentUpon>
@@ -145,14 +156,17 @@
     <Compile Include="View\Order.xaml.cs">
       <DependentUpon>Order.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\OrderAuto.xaml.cs">
+      <DependentUpon>OrderAuto.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\PriceExtraServ.xaml.cs">
       <DependentUpon>PriceExtraServ.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\Purchases.xaml.cs">
       <DependentUpon>Purchases.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\Statistics.xaml.cs">
-      <DependentUpon>Statistics.xaml</DependentUpon>
+    <Compile Include="View\ThanksForOrder.xaml.cs">
+      <DependentUpon>ThanksForOrder.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\ThanksForPurch.xaml.cs">
       <DependentUpon>ThanksForPurch.xaml</DependentUpon>
@@ -176,6 +190,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="View\ChooseOrder.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\Clients.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -192,6 +210,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="View\LittleReport.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\MenuAdministr.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -204,6 +226,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="View\OrderAuto.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\PriceExtraServ.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -212,7 +238,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\Statistics.xaml">
+    <Page Include="View\ThanksForOrder.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

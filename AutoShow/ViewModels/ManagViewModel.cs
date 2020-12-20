@@ -108,6 +108,23 @@ namespace AutoShow.ViewModels
             }
         }
 
+        private ReCommand orders;
+        public ReCommand Orders
+        {
+            get
+            {
+                return orders ??
+                  (orders = new ReCommand(obj =>
+                  {
+
+                      Order order  = new Order(manager, EmpFCS);
+                      order.ShowDialog();
+                      menuMan.Close();
+                  }));
+            }
+        }
+
+
         private MenuManager menuMan;
         public ManagViewModel(MenuManager menuMan, bool manager, string EmpFCS)
         {

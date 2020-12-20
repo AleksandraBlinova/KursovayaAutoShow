@@ -70,9 +70,9 @@ WindowStyle="None"
         <materialDesign:PackIcon Kind="Car" Foreground="#FFAE93ED" Width="121" Height="51" HorizontalAlignment="Center" Margin="600,9,359,0" Grid.ColumnSpan="2" />
 
         <Button x:Name="Butclose" Command="{Binding Close_Win}" Width="60" Height="60" HorizontalAlignment="Right" VerticalAlignment="Top" Style="{StaticResource ButtonClose}" Background="{x:Null}" BorderBrush="{x:Null}" Margin="0,0,0.4,0" Grid.RowSpan="2" Grid.Column="1" />
-        <DataGrid x:Name="DataGCars"  ItemsSource="{Binding Autos}" AutoGenerateColumns="True" HorizontalAlignment="Left" Height="405" Margin="10,27.6,0,0" VerticalAlignment="Top" Width="752"      
+        <DataGrid x:Name="DataGCars"  SelectedValue="{Binding Autos}" ItemsSource="{Binding Autos}" AutoGenerateColumns="True" HorizontalAlignment="Left" Height="405" Margin="10,27.6,0,0" VerticalAlignment="Top" Width="752"      
         CanUserAddRows="False"
-        SelectionUnit="Cell" Grid.ColumnSpan="2" Grid.Row="1"
+        SelectionUnit="FullRow" Grid.ColumnSpan="2" Grid.Row="1"
      />
         <Button Command="{Binding Buy}"  Width="250" Height="35"
     Style="{StaticResource MaterialDesignRaisedButton}"
@@ -88,6 +88,20 @@ WindowStyle="None"
     materialDesign:ButtonProgressAssist.IsIndeterminate="True"
     Content="НАЗАД"
     Margin="10,42.6,460.8,4.8" Background="#FF030009" RenderTransformOrigin="0.518,-0.331" Grid.Row="2" FontSize="20" />
+        <Button Command="{Binding Delete}"  Width="250" Height="35"
+            Style="{StaticResource MaterialDesignRaisedButton}"
+            materialDesign:ButtonProgressAssist.Value="-1"
+            materialDesign:ButtonProgressAssist.IsIndicatorVisible="True"
+            materialDesign:ButtonProgressAssist.IsIndeterminate="True"
+            Content="УДАЛИТЬ"
+            Margin="99.2,81.6,10,402.6" Background="#FFD10000" RenderTransformOrigin="0.518,-0.331" Grid.Row="1" Grid.Column="1" FontSize="20" BorderBrush="Black" />
+        <Button Command="{Binding ChangeAvail}" Height="35"
+            Style="{StaticResource MaterialDesignRaisedButton}"
+            materialDesign:ButtonProgressAssist.Value="-1"
+            materialDesign:ButtonProgressAssist.IsIndicatorVisible="True"
+            materialDesign:ButtonProgressAssist.IsIndeterminate="True"
+            Content="ИЗМЕНИТЬ ДОСТУПНОСТЬ"
+            Margin="59.2,140.6,10,343.6" Background="#FF34D44D" RenderTransformOrigin="0.518,-0.331" Grid.Row="1" Grid.Column="1" FontSize="20" BorderBrush="Black" />
 
 
 

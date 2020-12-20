@@ -59,22 +59,7 @@ namespace AutoShow.ViewModels
         }
 
 
-        private ReCommand statist;
-        public ReCommand Statist
-        {
-            get
-            {
-                return statist ??
-                  (statist = new ReCommand(obj =>
-                  {
-
-                      Statistics statistics = new Statistics(admin);
-                      statistics.ShowDialog();
-                      statistics.ShowDialog();
-                      menuAdm.Close();
-                  }));
-            }
-        }
+        
 
         private MenuAdministr menuAdm;
         public AdminViewModel(MenuAdministr menuAdm, bool admin)

@@ -31,7 +31,7 @@ namespace AutoShow
         {
             InitializeComponent();
             DataContext = new AutoViewModel(this,manager, EmpFCS);
-
+          
         }
 
 

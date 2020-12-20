@@ -73,7 +73,7 @@ WindowStyle="None"
     Orientation="Horizontal" Margin="0,0,147.4,0">
                 <ToolBar
     Style="{DynamicResource MaterialDesignToolBar}"
-    ClipToBounds="False" Height="56" Width="836">
+    ClipToBounds="False" Height="56" Width="1037">
                     <ToolBar.Background>
                         <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                             <GradientStop Color="Black" Offset="0"/>
@@ -85,7 +85,7 @@ WindowStyle="None"
                         Content="Автомобили"
                         Command="{Binding Cars}"
       ToolTip="Перейти к автомобилям"
-     FontSize="22" FontWeight="Bold" Foreground="#FFEEFCFC" Margin="0,0,0,0.4" Width="206" >
+     FontSize="22" FontWeight="Bold" Foreground="#FFEEFCFC" Margin="0,0,0,0.4" Width="168" >
 
                     </Button>
 
@@ -94,7 +94,7 @@ WindowStyle="None"
                         Content="Клиенты"
                         Command="{Binding Cli}"
       ToolTip="Перейти к клиентам"
-     FontSize="22" FontWeight="Bold" Foreground="#FFEEFCFC" Margin="0,0,0,0.4" Width="173" >
+     FontSize="22" FontWeight="Bold" Foreground="#FFEEFCFC" Margin="0,0,0,0.4" Width="154" >
 
                     </Button>
                     <Button
@@ -102,7 +102,7 @@ WindowStyle="None"
                         Content="Продажи"
                         Command="{Binding Purchase}"
       ToolTip="Перейти к продажам"
-     FontSize="22" FontWeight="Bold" Foreground="#FFEEFCFC" Margin="0,0,0,-1.6" Width="173" Height="56" >
+     FontSize="22" FontWeight="Bold" Foreground="#FFEEFCFC" Margin="0,0,0,-1.6" Width="152" Height="56" >
 
                     </Button>
                     <Button
@@ -110,7 +110,19 @@ WindowStyle="None"
                         Content="Доп.услуги "
                         Command="{Binding Extraserv}"
                         ToolTip="Перейти к прайсу"
-                        FontSize="22" FontWeight="Bold" Foreground="#FFEEFCFC" Width="182" Height="56" Margin="0,-1,0,-0.6" />
+                        FontSize="22" FontWeight="Bold" Foreground="#FFEEFCFC" Width="161" Height="56" Margin="0,-1,0,-0.6" />
+                    <Button
+                        
+                        Content="Заказы"
+                        Command="{Binding Orders}"
+                        ToolTip="Перейти к заказам"
+                        FontSize="22" FontWeight="Bold" Foreground="#FFEEFCFC" Width="119" Height="56" Margin="0,-1,0,-0.6"  />
+                    <Button
+                        
+                        Content="Отчет"
+                        Command="{Binding gf}"
+                        ToolTip="Перейти к отчету по работе автосалону"
+                        FontSize="22" FontWeight="Bold" Foreground="#FFEEFCFC" Width="161" Height="56" />
 
                 </ToolBar>
                 <StackPanel>
@@ -134,7 +146,7 @@ WindowStyle="None"
     materialDesign:ButtonProgressAssist.IsIndeterminate="True"
     Content="НАЗАД"
     Margin="43,632,787.6,10" Background="#FF030009" RenderTransformOrigin="0.518,-0.331" />
-        <Label Content="MANAGER" HorizontalAlignment="Center" VerticalAlignment="Top" Foreground="#FFF1EEF8" FontSize="22"  FontWeight="Bold" Height="28" Width="125" RenderTransformOrigin="0,0" Margin="903,15,52.6,0"/>
+        <Label Content="MANAGER" HorizontalAlignment="Center" VerticalAlignment="Top" Foreground="#FFFF6957" FontSize="22"  FontWeight="Bold" Height="28" Width="125" RenderTransformOrigin="0,0" Margin="946,12,9.6,0"/>
     </Grid>
 
 </Window>

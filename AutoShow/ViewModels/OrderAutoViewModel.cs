@@ -14,15 +14,17 @@ using System.Windows;
 
 namespace AutoShow.ViewModels
 {
-    public class BuyViewModel : INotifyPropertyChanged
+   public class OrderAutoViewModel : INotifyPropertyChanged
     {
-        int modelid; long cost; long newprice=0;
-        private BuyAuto buyAuto;
+        int modelid; 
+        private OrderAuto order ;
         private DBOperations db;
         bool manager; string EmpFCS;
         private ReCommand close; //закрыть окно
         private ReCommand back;
-        private ReCommand order;
+        private AutoModel car;
+        private VechTypeModel vech;
+        long cost;
 
         public ReCommand Close_Win
         {
@@ -31,7 +33,7 @@ namespace AutoShow.ViewModels
                 return close ??
                   (close = new ReCommand(obj =>
                   {
-                      buyAuto.Close();
+                      order.Close();
                   }));
             }
         }
@@ -45,26 +47,51 @@ namespace AutoShow.ViewModels
                   {
                       MenuManager menuManager = new MenuManager(manager, EmpFCS);
                       menuManager.ShowDialog();
-                      buyAuto.Close();
+                      order.Close();
                   }));
             }
         }
 
-        public ReCommand Order
+        public ReCommand Choose
         {
             get
             {
-                return order ??
-                  (order = new ReCommand(obj =>
+                return choose ??
+                  (choose = new ReCommand(obj =>
                   {
-                      OrderAuto orderAuto  = new OrderAuto(manager, EmpFCS);
-                      orderAuto.ShowDialog();
-                      buyAuto.Close();
+                      //if (Availability == false)
+                      //{
+
+
+                      //}
+                      //else
+                      //{
+                      //    MessageBox.Show("Автомобиль есть в наличии!");
+
+                      //}
+                      car = new AutoModel();
+                      car.Availability = false;
+                      car.Brand = SelectedBrand.Brand1;
+                      car.Color = SelectedColor.Color1;
+                      car.HP = SelectedVechType.HP;
+                      car.Model = SelectedModel.Model;
+                      car.Plant = SelectedModel.Plant;
+                      car.Price = cost;
+                      car.ReleaseYear = SelectedModel.ReleaseYear;
+                      car.Speed = SelectedVechType.Speed;
+                      car.Transm = SelectedTransm.Transmission1;
+                      car.Id = db.CreateAuto(SelectedModel.Id, SelectedColor.Id, Plants.Id, (int)cost, car.ReleaseYear);
+                      ChooseOrder chooseOrder  = new ChooseOrder( manager, EmpFCS, car.Id, SelectedVechType.Id);
+                      chooseOrder.ShowDialog();
+                      
+                      
+                      order.Close();
+
                   }));
             }
         }
         private ObservableCollection<AutoModel> cars;
-        public ObservableCollection<AutoModel> Cars 
+        public ObservableCollection<AutoModel> Cars
         {
             get { return cars; }
             set
@@ -76,29 +103,7 @@ namespace AutoShow.ViewModels
 
         private ReCommand choose; //закрыть окно
 
-        public ReCommand Choose
-        {
-            get
-            {
-                return choose ??
-                  (choose = new ReCommand(obj =>
-                  {
-                      if (Availability == true)
-                      {
-                          ChooseCustEmp chooseCustEmp = new ChooseCustEmp(modelid, cost, Color, Equiptype, manager, EmpFCS, SelectedTransm.Transmission1);
-                          chooseCustEmp.ShowDialog();
-                          buyAuto.Close();
-                        
-                      }
-                      else 
-                      {
-                          MessageBox.Show("Автомобиля нет в наличии!");
-                          
-                      }
-                      
-                  }));
-            }
-        }
+       
 
         public ObservableCollection<BrandModel> Brands { get; set; }
 
@@ -113,11 +118,11 @@ namespace AutoShow.ViewModels
                 selectedBrand = value;
                 //фильтрация остальных
                 Cars = new ObservableCollection<AutoModel>(db.GetModels(selectedBrand.Id));
-                
+
             }
         }
 
-        
+
 
         private AutoModel selectedModel;
         public AutoModel SelectedModel
@@ -125,19 +130,16 @@ namespace AutoShow.ViewModels
             get { return selectedModel; }
             set
             {
-                
+
                 selectedModel = value;
-                Colors = new ObservableCollection<ColorModel>(db.GetColors(selectedModel.Id));
+                Colors = new ObservableCollection<ColorModel>(db.GetAllColors());
                 Plants = db.GetPlants(selectedModel.Id);
                 Price = selectedModel.Price.ToString();
-                Release = selectedModel.ReleaseYear.ToString();
+                Release = "2020";
                 VechType = new ObservableCollection<VechTypeModel>(db.GetVechType(selectedModel.Id));
-                Availability = selectedModel.Availability;
-                cost = selectedModel.Price;
                 modelid = selectedModel.Id;
                 Color = SelectedColor.Id;
-                Equiptype = SelectedVechType.Id;
-               
+                //Availability = selectedModel.Availability;
 
             }
         }
@@ -152,30 +154,31 @@ namespace AutoShow.ViewModels
             }
         }
         private ColorModel selectedColor;
-        public ColorModel SelectedColor 
+        public ColorModel SelectedColor
         {
             get { return selectedColor; }
             set
             {
                 selectedColor = value;
-                Price = db.GetPrice(selectedModel.Id, selectedColor.Id).ToString();
-                Release = db.GetYear(selectedModel.Id, selectedColor.Id).ToString();
-                Availability = db.GetAvailability(selectedModel.Id, selectedColor.Id);//!!!!!!!!!!!!!!!! + КОГДА ПОКУПАЮ АВТО ДЕЛАТЬ FALSE
-                OnPropertyChanged("SelectedColor"); 
+
+                //Availability = db.GetAvailability(selectedModel.Id, selectedColor.Id);
+                OnPropertyChanged("SelectedColor");
             }
         }
-        private ObservableCollection<VechTypeModel> vechType; 
+        private ObservableCollection<VechTypeModel> vechType;
         public ObservableCollection<VechTypeModel> VechType
         {
             get { return vechType; }
             set
             {
                 vechType = value;
-             
+                
                 OnPropertyChanged("VechType");
             }
         }
 
+
+      
         private VechTypeModel selectedVechType;
         public VechTypeModel SelectedVechType
         {
@@ -183,50 +186,49 @@ namespace AutoShow.ViewModels
             set
             {
                 selectedVechType = value;
+                Equiptype = SelectedVechType.Id;
+                Speed = SelectedVechType.Speed;
+                HP = SelectedVechType.HP;
                 if (selectedVechType.EquipType != "Полный")
                 {
-                    newprice = selectedModel.Price - 60000;
-                    cost = newprice;
-                    Price = newprice.ToString();
+                    cost = selectedModel.Price - 50000;
+                    Price = cost.ToString();
                 }
                 else Price = selectedModel.Price.ToString();
-                Transm = new ObservableCollection<TransmissionModel>(db.GetSelTransm(SelectedVechType.Id, SelectedModel.Id));
                 OnPropertyChanged("SelectedVechType");
             }
         }
 
-        private ObservableCollection<TransmissionModel> transm;
-        public ObservableCollection<TransmissionModel> Transm
+
+        private ObservableCollection<TransmissionModel> transmission;
+        public ObservableCollection<TransmissionModel> Transmission
         {
-            get { return transm; }
+            get { return transmission; }
             set
             {
-                transm = value;
-
-                OnPropertyChanged("Transm");
+                transmission = value;
+                OnPropertyChanged("Transmission");
             }
         }
 
-        private TransmissionModel selectedTransm;
+        private TransmissionModel selectedtransm;
         public TransmissionModel SelectedTransm
         {
-            get { return selectedTransm; }
+            get { return selectedtransm; }
             set
             {
-                selectedTransm = value;
-                if (selectedTransm.Transmission1 != "АКП" && newprice != 0)
+                selectedtransm = value;
+                if (selectedtransm.Transmission1 != "АКП" && cost != 0)
                 {
-                    newprice = newprice - 30000;
-                    cost = newprice;
-                    Price = newprice.ToString();
+                    cost = cost - 30000;
+                    Price = cost.ToString();
                 }
                 else
                 {
-                    newprice = selectedModel.Price - 30000;
-                    Price = newprice.ToString();
+                    cost = selectedModel.Price - 30000;
+                    Price = cost.ToString();
 
                 }
-              
                 OnPropertyChanged("SelectedTransm");
             }
         }
@@ -265,6 +267,18 @@ namespace AutoShow.ViewModels
             }
         }
 
+        private int color;
+        public int Color
+        {
+            get { return color; }
+            set
+            {
+                color = value;
+                OnPropertyChanged("Color");
+            }
+        }
+       
+        
         private bool availability;
         public bool Availability
         {
@@ -277,16 +291,28 @@ namespace AutoShow.ViewModels
         }
 
 
-        private int color;
-        public int Color
+        private int hp;
+        public int HP
         {
-            get { return color; }
+            get { return hp; }
             set
             {
-                color = value;
-                OnPropertyChanged("Color");
+                hp = value;
+                OnPropertyChanged("HP");
             }
         }
+
+        private int speed;
+        public int Speed
+        {
+            get { return speed; }
+            set
+            {
+                speed = value;
+                OnPropertyChanged("Speed");
+            }
+        }
+
 
         private int quiptype;
         public int Equiptype
@@ -298,14 +324,18 @@ namespace AutoShow.ViewModels
                 OnPropertyChanged("Equiptype");
             }
         }
-        public BuyViewModel(BuyAuto buyAuto, bool manager, string EmpFCS)
+
+
+      
+
+        public OrderAutoViewModel(OrderAuto order, bool manager, string EmpFCS)
         {
-            this.buyAuto = buyAuto;
+            this.order = order;
             db = new DBOperations();
             this.manager = manager;
             this.EmpFCS = EmpFCS;
             Brands = new ObservableCollection<BrandModel>(db.GetBrands());
-            
+            Transmission = new ObservableCollection<TransmissionModel>(db.GetAllTransm());
         }
 
 
@@ -316,6 +346,6 @@ namespace AutoShow.ViewModels
                 PropertyChanged(this, new PropertyChangedEventArgs(prop));
         }
 
-    
+
     }
 }

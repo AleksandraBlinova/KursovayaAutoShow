@@ -73,7 +73,14 @@ WindowStyle="None"
     materialDesign:ButtonProgressAssist.IsIndeterminate="True"
     Content="ПЕЧАТЬ"
     Margin="788,606,42,60" Background="#FF030009" RenderTransformOrigin="0.518,-0.331" FontSize="20" />
-        <DataGrid ItemsSource="{Binding AllPurchs}" AutoGenerateColumns="True" HorizontalAlignment="Left" Height="382" Margin="42,121,0,0" VerticalAlignment="Top" Width="741"/>
+        <DataGrid x:Name="DataGPurches"  SelectionUnit="FullRow" ItemsSource="{Binding AllPurchs}" AutoGenerateColumns="True" HorizontalAlignment="Left" Height="382" Margin="10,121,0,0" VerticalAlignment="Top" Width="776"/>
+        <Button Command="{Binding LittleRep}" Height="35"
+            Style="{StaticResource MaterialDesignRaisedButton}"
+            materialDesign:ButtonProgressAssist.Value="-1"
+            materialDesign:ButtonProgressAssist.IsIndicatorVisible="True"
+            materialDesign:ButtonProgressAssist.IsIndeterminate="True"
+            Content="СФОРМИРОВАТЬ ОТЧЁТ"
+            Margin="810,207,10,458" Background="#FF009CED" RenderTransformOrigin="0.518,-0.331" FontSize="20" BorderBrush="Black" />
 
 
 

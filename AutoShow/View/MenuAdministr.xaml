@@ -90,14 +90,6 @@ WindowStyle="None"
 
                     </Button>
 
-                    <Button
-                        Content="Cтатистика"
-                        Command="{Binding Statist}"
-      ToolTip="Перейти к статистике салона"
-     FontSize="22" FontWeight="Bold" Foreground="#FFEEFCFC" Margin="0,2,0,-1.6" Width="188">
-
-                    </Button>
-
                 </ToolBar>
                 <StackPanel>
 
@@ -120,7 +112,7 @@ WindowStyle="None"
     materialDesign:ButtonProgressAssist.IsIndeterminate="True"
     Content="НАЗАД"
     Margin="35,642,795.4,0.4" Background="#FF030009" RenderTransformOrigin="0.518,-0.331" FontSize="20" />
-        <Label Content="ADMINISTRATOR" HorizontalAlignment="Center" VerticalAlignment="Top" Foreground="#FFF1EEF8" FontSize="22"  FontWeight="Bold" Height="28" Width="197" RenderTransformOrigin="0,0" Margin="853,15,30.4,0"/>
+        <Label Content="ADMINISTRATOR" HorizontalAlignment="Center" VerticalAlignment="Top" Foreground="#FFFF6957" FontSize="22"  FontWeight="Bold" Height="28" Width="197" RenderTransformOrigin="0,0" Margin="853,15,30.4,0"/>
     </Grid>
 
 </Window>

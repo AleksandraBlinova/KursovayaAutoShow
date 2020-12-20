@@ -12,6 +12,7 @@ namespace DAL.Entity
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Automobile()
         {
+            Order = new HashSet<Order>();
             Purchase = new HashSet<Purchase>();
         }
 
@@ -34,6 +35,9 @@ namespace DAL.Entity
         public virtual Model Model { get; set; }
 
         public virtual Plant Plant { get; set; }
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Order> Order { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Purchase> Purchase { get; set; }

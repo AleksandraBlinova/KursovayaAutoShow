@@ -15,7 +15,7 @@ namespace AutoShow.ViewModels
 {
     public class ChooseViewModel : INotifyPropertyChanged
     {
-        int modelid; long cost; int color; int equip; bool manager; string EmpFCS;
+        int modelid; long cost; int color; int equip; bool manager; string EmpFCS; string transm;
         private ChooseCustEmp chooseCustEmp;
         private DBOperations db;
         private ReCommand close; //закрыть окно
@@ -58,7 +58,7 @@ namespace AutoShow.ViewModels
                   (typepay = new ReCommand(obj =>
                   {
 
-                      TypePay typePay  = new TypePay(modelid, cost, color, equip, selectedClient.Id, Employee, manager);
+                      TypePay typePay  = new TypePay(modelid, cost, color, equip, selectedClient.Id, Employee, manager, transm);
                       typePay.ShowDialog();
                       chooseCustEmp.Close();
                   }));
@@ -97,7 +97,7 @@ namespace AutoShow.ViewModels
         }
 
 
-        public ChooseViewModel(ChooseCustEmp chooseCustEmp, int modelid, long cost, int color, int equip, bool manager, string EmpFCS)
+        public ChooseViewModel(ChooseCustEmp chooseCustEmp, int modelid, long cost, int color, int equip, bool manager, string EmpFCS, string transm)
         {
             this.chooseCustEmp = chooseCustEmp;
             db = new DBOperations();
@@ -108,6 +108,7 @@ namespace AutoShow.ViewModels
             this.color = color;
             this.equip = equip;
             this.manager = manager;
+            this.transm = transm;
         }
 
 

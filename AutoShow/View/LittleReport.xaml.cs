@@ -13,18 +13,17 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
-namespace AutoShow
+namespace AutoShow.View
 {
     /// <summary>
-    /// Логика взаимодействия для Order.xaml
+    /// Логика взаимодействия для LittleReport.xaml
     /// </summary>
-    public partial class Order : Window
+    public partial class LittleReport : Window
     {
-        public Order(bool manager, string EmpFCS)
+        public LittleReport(bool manager, string EmpFCS, int selectedId, string formname)
         {
             InitializeComponent();
-            DataContext = new OrderViewModel(this, manager, EmpFCS);
+            DataContext = new LittleReportViewModel(this, manager, EmpFCS, selectedId, formname);
         }
-
     }
 }

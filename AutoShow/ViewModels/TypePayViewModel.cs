@@ -16,7 +16,7 @@ namespace AutoShow.ViewModels
 {
   public  class TypePayViewModel : INotifyPropertyChanged
     {
-        int modelid; long cost; int color; int equip; int client; string EmpFCS; bool manager;
+        int modelid; long cost; int color; int equip; int client; string EmpFCS; bool manager; string transm;
         private TypePay typePay;
         private DBOperations db;
         private ReCommand close; //закрыть окно
@@ -24,9 +24,9 @@ namespace AutoShow.ViewModels
         EmployeeModel Employee;
         public VechTypeModel VechType;
         private PurchModel purch;
-        public ObservableCollection<CarModel> Cars { get; set; } //коллекция авто по запросу
+        //public ObservableCollection<CarModel> Cars { get; set; } //коллекция авто по запросу
         private AutoModel Car;
-   //   ObservableCollection<Purchases> purchases { get; set; } //коллекция продаж автомобилей
+  
 
         public ReCommand Close_Win
         {
@@ -49,7 +49,7 @@ namespace AutoShow.ViewModels
                   (back = new ReCommand(obj =>
                   {
 
-                      ChooseCustEmp chooseCustEmp  = new ChooseCustEmp(modelid, cost, color, equip, manager, EmpFCS);
+                      ChooseCustEmp chooseCustEmp  = new ChooseCustEmp(modelid, cost, color, equip, manager, EmpFCS, transm);
                       chooseCustEmp.ShowDialog();
                       typePay.Close();
                   }));
@@ -75,14 +75,17 @@ namespace AutoShow.ViewModels
                       purch.ReleaseYear = Car.ReleaseYear;
                       purch.PayType = SelectedType.PayType;
                       purch.EquipType = VechType.EquipType;
-                      purch.Transm = Car.Transm;
+                      purch.Transm = transm;
                       purch.ExtraServ = SelectedExtraServ.ServName;
                       purch.TotalCost = (long)(cost + SelectedExtraServ.ServCost);
                       purch.Id = db.CreatePurch(purch, Car.Id, client, Employee.Id, SelectedType.Id, VechType.Id,SelectedExtraServ.Id);
+                      db.UpdateAuto(Car);
+
+
                       ThanksForPurch thanksForPurch  = new ThanksForPurch(manager, cost, EmpFCS);
                       thanksForPurch.ShowDialog();
                       typePay.Close();
-
+                      
                   }));
             }
         }
@@ -117,7 +120,7 @@ namespace AutoShow.ViewModels
             }
         }
 
-        public TypePayViewModel(TypePay typePay, int modelid, long cost, int color, int equip, int client, string EmpFCS, bool manager)
+        public TypePayViewModel(TypePay typePay, int modelid, long cost, int color, int equip, int client, string EmpFCS, bool manager, string transm)
         {
             
             db = new DBOperations();
@@ -126,14 +129,14 @@ namespace AutoShow.ViewModels
             this.modelid = modelid;
             this.cost = cost;
             this.client = client;
-           
+            this.transm = transm;
             this.color = color;
             this.equip = equip;
             this.typePay = typePay;
             Client = db.GetClient(client);
             Employee = db.GetEmp(EmpFCS);
             VechType = db.GetEqType(equip);
-            Cars = new ObservableCollection<CarModel>( db.GetCars(modelid,color));
+            //Cars = new ObservableCollection<CarModel>( db.GetCars(modelid,color));
             Car= db.GetCar(equip);
             
            

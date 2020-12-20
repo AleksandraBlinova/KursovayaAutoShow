@@ -41,12 +41,43 @@ namespace AutoShow.Models
             return db.Purchase.ToList().Select(i => new PurchModel(i)).ToList();
         }
 
-        public List<CarModel> GetCars(int modelid, int color)
+        public List<OrderModel> GetAllOrders()
         {
-            return db.Automobile.ToList().Select(a => new CarModel(a)).Where(i => i.ModelFK == modelid && i.ColorFK==color).ToList();
+            return db.Order.ToList().Select(i => new OrderModel(i)).ToList();
         }
 
-        public AutoModel GetCar(int equip)
+
+        public List<ColorModel> GetAllColors()
+        {
+            return db.Color.ToList().Select(i => new ColorModel(i)).ToList();
+        }
+
+        public List<TransmissionModel> GetAllTransm()
+        {
+            return db.Transmission.ToList().Select(i => new TransmissionModel(i)).ToList();
+        }
+
+
+        public AutoModel GetCars(int carid)//order
+        {
+            return db.Automobile
+                .Where(i => i.Id == carid)
+                .Select(i => new AutoModel
+                {
+                    Id = i.Id,
+                    Price = i.Price,
+                    Availability = i.Availability,
+                    ReleaseYear = i.ReleaseYear,
+                    Brand=i.Model.Brand.Brand1,
+                    Model=i.Model.Model1,
+                    Color=i.Color.Color1,
+                    Plant=i.Plant.PlantName,
+                    Transm=i.Model.VehicleEquip.FirstOrDefault().Transmission.Transmission1
+                }).FirstOrDefault();
+
+        }
+
+        public AutoModel GetCar(int equip)//purchase
         {
             return db.Automobile.Join(db.Model, a => a.ModelFK, m => m.Id, (a, m) => a)
                .Join(db.VehicleEquip, a => a.ModelFK, b => b.Id, (a, b) => a)
@@ -63,6 +94,16 @@ namespace AutoShow.Models
         public ClientModel GetClient(int Id)
         {
             return new ClientModel(db.Client.Find(Id));
+        }
+
+        public PurchModel GetPurch(int Id)
+        {
+            return new PurchModel(db.Purchase.Find(Id));
+        }
+
+        public OrderModel GetOrder(int Id)
+        {
+            return new OrderModel(db.Order.Find(Id));
         }
 
         public EmployeeModel GetEmp(string EmpFCS)
@@ -112,6 +153,7 @@ namespace AutoShow.Models
                     Color1 = i.Color.Color1
                 }).ToList();
         }
+
         public long GetPrice(int model, int color)
         {
             return db.Automobile.Join(db.Color, a => a.ColorFK, c => c.Id, (a, c) => a)
@@ -119,6 +161,8 @@ namespace AutoShow.Models
                 .Where(i => i.ModelFK == model && i.ColorFK == color)
                 .ToList().FirstOrDefault().Price;
         }
+
+       
         public int GetYear(int model, int color)
         {
             return db.Automobile.Join(db.Color, a => a.ColorFK, c => c.Id, (a, c) => a)
@@ -128,9 +172,10 @@ namespace AutoShow.Models
         }
         public bool GetAvailability(int model, int color)
         {
-            return db.Automobile.Join(db.Color, a => a.ColorFK, c => c.Id, (a, c) => a)
+            return db.Automobile
+                .Join(db.Color, a => a.ColorFK, c => c.Id, (a, c) => a)
                 .Join(db.Model, a => a.ModelFK, m => m.Id, (a, m) => a)
-                .Where(i => i.ModelFK == model && i.ColorFK == color)
+                .Where(i => i.ModelFK == model && i.ColorFK == color )
                 .ToList().FirstOrDefault().Availability;
         }
         public List<VechTypeModel> GetVechType(int model)
@@ -142,9 +187,23 @@ namespace AutoShow.Models
                     Id = i.Id,
                     EquipType = i.EquipType,
                     HP = i.HP,
-                    Speed = i.Speed
+                    Speed = i.Speed,
+                    TransmFK=i.TransmFK
+                    
                 }).ToList();
           
+        }
+        public List<TransmissionModel> GetSelTransm(int vechid, int modelid)// зависящие от типа компл типы трансмиссии и модели
+        {
+            return db.VehicleEquip
+                .Join(db.Transmission, a => a.TransmFK, p => p.Id, (a, p) => a)
+                .Where(i => i.ModelFK == modelid && i.Id==vechid)
+                .Select(i => new TransmissionModel
+                {
+                   Id=i.Transmission.Id,
+                   Transmission1=i.Transmission.Transmission1
+
+                }).ToList();
         }
         public PlantModel GetPlants(int model)
         {
@@ -177,8 +236,68 @@ namespace AutoShow.Models
             return (int)purchase.Id;
         }
 
+        public int CreateOrder(OrderModel order, int carid, int clientid, int empid,  int vechtype, int paytype)//создать покупку авто
+        {
+            DAL.Entity.Order ord = new DAL.Entity.Order();
+            string date = order.OrderDate;
+            ord.OrderDate = DateTime.Parse(date);
+            ord.Cost = order.Cost;
+            ord.AutoFK = carid;
+            ord.ClientFK = clientid;
+            ord.EmpFK = empid;
+            ord.VechTypeFK = vechtype;
+            ord.PayTypeFK = paytype;
+            db.Order.Add(ord);
 
+            Save();
+            return (int)ord.Id;
+        }
 
+        public int CreateAuto( int model, int color, int plant, int price, int release)//создать  авто (для заказа)
+        {
+           Automobile car = new Automobile();
+            car.ModelFK = model;
+            car.Availability = false;
+            car.ColorFK =color;
+            car.PlantFK = plant;
+            car.Price = price;
+            car.ReleaseYear = release;
+            db.Automobile.Add(car);
+
+            Save();
+            return (int)car.Id;
+        }
+
+        public void DeleteAuto(int Id)
+        {
+           
+                Automobile automobile= db.Automobile.Find(Id);
+                if (automobile != null)
+                {
+                    db.Automobile.Remove(automobile);
+                    Save();
+                }
+           
+        }
+        public void UpdateAuto(AutoModel a)
+        {
+            Automobile auto = db.Automobile.Find(a.Id);
+            auto.Availability = false;
+            db.Entry(auto).State = System.Data.Entity.EntityState.Modified;
+            Save();
+        }
+
+        public void ChangeAvail(AutoModel a)
+        {
+            Automobile auto = db.Automobile.Find(a.Id);
+
+            if (auto.Availability==true)
+            auto.Availability = false;
+            else
+            auto.Availability = true;
+            db.Entry(auto).State = System.Data.Entity.EntityState.Modified;
+            Save();
+        }
         public bool Save()
         {
             if (db.SaveChanges() > 0) return true;

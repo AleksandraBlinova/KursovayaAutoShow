@@ -25,5 +25,7 @@ namespace AutoShow
             InitializeComponent();
             DataContext = new ManagViewModel(this,manager, EmpFCS);
         }
+
+     
     }
 }

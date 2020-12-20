@@ -20,10 +20,10 @@ namespace AutoShow.View
     /// </summary>
     public partial class ChooseCustEmp : Window
     {
-        public ChooseCustEmp(int modelid, long cost,int color, int equip, bool manager, string EmpFCS)
+        public ChooseCustEmp(int modelid, long cost,int color, int equip, bool manager, string EmpFCS, string transm)
         {
             InitializeComponent();
-            DataContext = new ChooseViewModel(this, modelid, cost, color, equip, manager, EmpFCS);
+            DataContext = new ChooseViewModel(this, modelid, cost, color, equip, manager, EmpFCS, transm);
         }
     }
 }
