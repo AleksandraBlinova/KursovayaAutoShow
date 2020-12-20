@@ -31,11 +31,7 @@ namespace AutoShow.Models
             return db.Employee.ToList().Select(i => new EmployeeModel(i)).ToList();
         }
 
-        public List<EmployeeModel> GetManagers()
-        {
-            return db.Employee.ToList().Select(e => new EmployeeModel(e)).Where(i => i.EmpType == "Менеджер").ToList();
-        }
-
+     
         public List<PurchModel> GetAllPurchs()
         {
             return db.Purchase.ToList().Select(i => new PurchModel(i)).ToList();
@@ -217,6 +213,29 @@ namespace AutoShow.Models
                 }).FirstOrDefault();
         }
 
+        public List<PurchModel> GetReportPurch(DateTime selectedDate)// для отчета о выручке
+        {
+            return db.Purchase
+                .Where(i => i.PurchDate==selectedDate)
+                .Select(i => new PurchModel
+                {
+                    TotalCost=i.TotalCost
+
+                }).ToList();
+        }
+
+       public List<OrderModel> GetReportOrder(DateTime selectedDate)// для отчета о выручке
+        {
+            return db.Order
+                .Where(i => i.OrderDate==selectedDate)
+               .Select(i => new OrderModel
+               {
+                   Cost=i.Cost
+
+               }).ToList(); 
+        }
+
+
 
         public int CreatePurch(PurchModel purchModel, int carid, int clientid, int empid, int paytypeid, int vechtype, int extraserv)//создать покупку авто
         {
@@ -268,17 +287,6 @@ namespace AutoShow.Models
             return (int)car.Id;
         }
 
-        public void DeleteAuto(int Id)
-        {
-           
-                Automobile automobile= db.Automobile.Find(Id);
-                if (automobile != null)
-                {
-                    db.Automobile.Remove(automobile);
-                    Save();
-                }
-           
-        }
         public void UpdateAuto(AutoModel a)
         {
             Automobile auto = db.Automobile.Find(a.Id);

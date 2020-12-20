@@ -120,7 +120,7 @@ WindowStyle="None"
                     <Button
                         
                         Content="Отчет"
-                        Command="{Binding gf}"
+                        Command="{Binding BigReport}"
                         ToolTip="Перейти к отчету по работе автосалону"
                         FontSize="22" FontWeight="Bold" Foreground="#FFEEFCFC" Width="161" Height="56" />
 

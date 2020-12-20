@@ -41,6 +41,7 @@ namespace AutoShow.ViewModels
             }
         }
 
+        
 
         private ReCommand cars;
         public ReCommand Cars
@@ -119,6 +120,22 @@ namespace AutoShow.ViewModels
 
                       Order order  = new Order(manager, EmpFCS);
                       order.ShowDialog();
+                      menuMan.Close();
+                  }));
+            }
+        }
+
+        private ReCommand bigReport;
+        public ReCommand BigReport
+        {
+            get
+            {
+                return bigReport ??
+                  (bigReport = new ReCommand(obj =>
+                  {
+
+                      BigReport bigReport = new BigReport(manager, EmpFCS);
+                      bigReport.ShowDialog();
                       menuMan.Close();
                   }));
             }
