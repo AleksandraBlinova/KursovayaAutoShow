@@ -59,7 +59,7 @@ WindowStyle="None"
         <Label Content="КЛИЕНТЫ" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="453,10,411.4,0" Foreground="#FF1C1C1C" FontSize="32" FontWeight="Bold" FontFamily="Segoe UI Black" BorderBrush="White" Width="216"/>
         <materialDesign:PackIcon Kind="HumanGreeting" Foreground="#FF9063FF" Width="85" Height="50" HorizontalAlignment="Center" Margin="619,10,376.4,0" RenderTransformOrigin="0.834,0.758" />
         <Button Command="{Binding Close_Win}" Width="60" Height="60" HorizontalAlignment="Right" VerticalAlignment="Top" Style="{StaticResource ButtonClose}" Background="{x:Null}" BorderBrush="{x:Null}" />
-        <DataGrid x:Name="clnts" ItemsSource="{Binding clies}" AutoGenerateColumns="True" HorizontalAlignment="Left" Height="386" Margin="26,110,0,0" VerticalAlignment="Top" Width="696"      
+        <DataGrid x:Name="clnts" ItemsSource="{Binding clies}" AutoGenerateColumns="True" HorizontalAlignment="Left" Height="386" Margin="26,110,0,0" VerticalAlignment="Top" Width="1028"      
         
         CanUserAddRows="False"
         SelectionUnit="Cell"
@@ -71,13 +71,6 @@ WindowStyle="None"
     materialDesign:ButtonProgressAssist.IsIndeterminate="True"
     Content="НАЗАД"
     Margin="26,642,804.4,0.4" Background="#FF030009" RenderTransformOrigin="0.518,-0.331" FontSize="20" />
-        <Button Width="250" Height="35"
-    Style="{StaticResource MaterialDesignRaisedButton}"
-    materialDesign:ButtonProgressAssist.Value="-1"
-    materialDesign:ButtonProgressAssist.IsIndicatorVisible="True"
-    materialDesign:ButtonProgressAssist.IsIndeterminate="True"
-    Content="ПОИСК КЛИЕНТА"
-    Margin="804,642,26.4,0.4" Background="#FF030009" RenderTransformOrigin="0.518,-0.331" FontSize="20" />
 
     </Grid>
 
